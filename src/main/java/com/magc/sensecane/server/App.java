@@ -53,16 +53,22 @@ public class App extends JavaFxApplication implements SparkApplication {
 
 //			File file = loadresource.execute("json/sensecane.server.json");
 //			FileReader reader = new FileReader(file);
+			String json = "json/sensecane.server.json";
+			
 			new GsonBuilder().setPrettyPrinting().serializeNulls()
-					.registerTypeAdapter(Container.class, new ConfigurationJsonParser(this)).create()
-					.fromJson(new FileReader(loadresource.execute("json/sensecane.server.json")), Container.class);
+				.registerTypeAdapter(Container.class, new DBConfigurationJsonParser(this)).create()
+				.fromJson(new FileReader(loadresource.execute(json)), Container.class);
+
+			new GsonBuilder().setPrettyPrinting().serializeNulls()
+				.registerTypeAdapter(Container.class, new ConfigurationJsonParser(this)).create()
+				.fromJson(new FileReader(loadresource.execute(json)), Container.class);
 			
 			get(ServerWindowController.class).configure();
 			get(ConnectionPool.class).configure(20);
 
 			new GsonBuilder().setPrettyPrinting().serializeNulls()
-					.registerTypeAdapter(Container.class, new ServerConfigurationJsonParser(this)).create()
-					.fromJson(new FileReader(loadresource.execute("json/sensecane.server.json")), Container.class);
+				.registerTypeAdapter(Container.class, new ServerConfigurationJsonParser(this)).create()
+				.fromJson(new FileReader(loadresource.execute(json)), Container.class);
 //			reader.close();
 			
 			// Util<String, Void> initDB = new InitializeDatabase(this);

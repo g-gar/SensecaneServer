@@ -41,31 +41,6 @@ public class ConfigurationJsonParser implements JsonDeserializer<Container> {
 	public Container deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
 		JsonObject obj = json.getAsJsonObject();
 		
-		if (obj.has("database")) {
-			try {
-				JsonObject db = obj.getAsJsonObject("database");
-				
-				if (db.has("connectionfactory")) {
-					Constructor<ConnectionFactory> constructor = (Constructor<ConnectionFactory>) Class.forName(db.get("connectionfactory").getAsString()).getConstructor();
-					container.register(ConnectionFactory.class, constructor.newInstance());
-				}
-				
-				if (db.has("connectionproperties")) {
-					String[] keys = new String[] {"dbserver", "username", "password", "schema"};
-					Constructor<ConnectionProperties> constructor = (Constructor<ConnectionProperties>) Class.forName(db.get("connectionproperties").getAsString()).getConstructor(String.class, String.class, String.class, String.class);
-					ConnectionProperties connectionProperties = constructor.newInstance(db.get(keys[0]).getAsString(), db.get(keys[1]).getAsString(), db.get(keys[2]).getAsString(), db.get(keys[3]).getAsString());
-					container.register(ConnectionProperties.class, connectionProperties);
-				}
-				
-				if (db.has("connectionpool")) {
-					Constructor<ConnectionPool> constructor = (Constructor<ConnectionPool>) Class.forName(db.get("connectionpool").getAsString()).getConstructor(Container.class);
-					container.register(ConnectionPool.class, constructor.newInstance(container));
-				}
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
-		}
-		
 		if (obj.has("dao")) {
 			DaoContainer daocontainer = new DaoContainer();
 			JsonObject dao = obj.getAsJsonObject("dao");
