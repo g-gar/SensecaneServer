@@ -14,14 +14,14 @@ import com.magc.sensecane.framework.database.connection.pool.ConnectionPool;
 import com.magc.sensecane.framework.exception.InstanceNotFoundException;
 import com.magc.sensecane.framework.model.BaseEntity;
 
-public abstract class CachedDao<T extends BaseEntity> implements Dao<T> {
+public abstract class CachedDao<T extends BaseEntity> implements Dao<T> { 
 	
 	protected ConnectionPool pool;
 	protected final Map<Integer, T> cache;
 	
 	public CachedDao(ConnectionPool pool) {
 		this.pool = pool;
-		this.cache = new ConcurrentHashMap<Integer, T>();
+		this.cache = new ConcurrentHashMap<>();
 	}
 	
 	public void empty() {
