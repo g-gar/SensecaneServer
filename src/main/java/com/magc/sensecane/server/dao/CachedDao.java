@@ -75,13 +75,11 @@ public abstract class CachedDao<T extends BaseEntity> implements Dao<T> {
 
 	@Override
 	public List<T> removeAll() {
-		List<T> result = new ArrayList<T>();
-		Integer id;
+		List<T> result = new ArrayList<>();
 		Entry<Integer, T> entry;
 		for (Iterator<Entry<Integer, T>> it = this.cache.entrySet().iterator(); it.hasNext();) {
 			entry = it.next();
 			if (entry.getValue() != null) {
-				id = (Integer) entry.getValue().getAttributes().get("id");
 				result.add(this.cache.remove(entry.getKey()));
 			}
 		}
