@@ -7,6 +7,7 @@ import com.magc.sensecane.framework.container.Container;
 import com.magc.sensecane.framework.conversor.ConversorContainer;
 import com.magc.sensecane.framework.dao.Dao;
 import com.magc.sensecane.framework.dao.DaoContainer;
+import com.magc.sensecane.framework.spark.AbstractPostRoute;
 import com.magc.sensecane.model.database.SensorPatientTable;
 import com.magc.sensecane.model.database.SensorTable;
 import com.magc.sensecane.model.domain.Sensor;

@@ -4,8 +4,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.magc.sensecane.framework.container.Container;
+import com.magc.sensecane.framework.model.json.PreSerializedJson;
+import com.magc.sensecane.framework.spark.AbstractGetRoute;
 import com.magc.sensecane.server.facade.DaoFacade;
-import com.magc.sensecane.server.model.PreSerializedJson;
 import com.magc.sensecane.server.model.database.CitationTable;
 import com.magc.sensecane.server.model.filter.CitationFilter;
 

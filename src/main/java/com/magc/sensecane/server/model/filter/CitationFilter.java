@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.function.BiFunction;
 
+import com.magc.sensecane.framework.model.filter.Filter;
 import com.magc.sensecane.server.facade.DaoFacade;
 import com.magc.sensecane.server.model.Type;
 import com.magc.sensecane.server.model.User;
