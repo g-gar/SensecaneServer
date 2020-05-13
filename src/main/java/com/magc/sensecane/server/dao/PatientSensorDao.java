@@ -1,5 +1,6 @@
 package com.magc.sensecane.server.dao;
 
+import com.magc.sensecane.framework.dao.CachedDao;
 import com.magc.sensecane.framework.database.connection.pool.ConnectionPool;
 import com.magc.sensecane.server.model.database.PatientSensorTable;
 

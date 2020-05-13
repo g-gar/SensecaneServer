@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 
 import com.magc.sensecane.framework.container.Container;
 import com.magc.sensecane.framework.container.DefaultContainer;
+import com.magc.sensecane.framework.dao.CachedDao;
 import com.magc.sensecane.framework.dao.Dao;
 import com.magc.sensecane.framework.dao.DaoContainer;
 import com.magc.sensecane.framework.database.MariaDBConnectionFactory;
@@ -15,7 +16,6 @@ import com.magc.sensecane.framework.database.connection.factory.ConnectionFactor
 import com.magc.sensecane.framework.database.connection.pool.AbstractConnectionPool;
 import com.magc.sensecane.framework.database.connection.pool.ConnectionPool;
 import com.magc.sensecane.framework.database.connection.properties.ConnectionProperties;
-import com.magc.sensecane.server.dao.CachedDao;
 import com.magc.sensecane.server.dao.CarerDao;
 import com.magc.sensecane.server.dao.UserDao;
 import com.magc.sensecane.server.model.database.CarerTable;

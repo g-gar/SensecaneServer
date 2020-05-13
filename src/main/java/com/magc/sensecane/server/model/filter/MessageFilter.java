@@ -2,6 +2,7 @@ package com.magc.sensecane.server.model.filter;
 
 import java.util.function.BiFunction;
 
+import com.magc.sensecane.framework.model.filter.Filter;
 import com.magc.sensecane.server.model.database.MessageTable;
 
 public enum MessageFilter implements Filter<Integer, MessageTable> {

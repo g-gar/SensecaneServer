@@ -9,6 +9,7 @@ import com.magc.sensecane.framework.dao.Dao;
 import com.magc.sensecane.framework.dao.DaoContainer;
 import com.magc.sensecane.framework.exception.InstanceNotFoundException;
 import com.magc.sensecane.framework.model.BaseEntity;
+import com.magc.sensecane.framework.spark.AbstractPostRoute;
 import com.magc.sensecane.model.database.DoctorPatientCitationTable;
 import com.magc.sensecane.model.database.TypeTable;
 import com.magc.sensecane.model.domain.Citation;

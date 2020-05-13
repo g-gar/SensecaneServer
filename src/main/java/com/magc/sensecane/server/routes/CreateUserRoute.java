@@ -8,6 +8,7 @@ import com.magc.sensecane.framework.conversor.ConversorContainer;
 import com.magc.sensecane.framework.dao.Dao;
 import com.magc.sensecane.framework.dao.DaoContainer;
 import com.magc.sensecane.framework.security.Md5Encode;
+import com.magc.sensecane.framework.spark.AbstractPostRoute;
 import com.magc.sensecane.model.database.TypeTable;
 import com.magc.sensecane.model.domain.User;
 import com.magc.sensecane.model.domain.UserType;
