@@ -1,18 +1,16 @@
 package com.magc.sensecane.server.routes;
 
 import com.magc.sensecane.framework.container.Container;
-import com.magc.sensecane.framework.conversor.ConversorContainer;
-import com.magc.sensecane.framework.dao.Dao;
-import com.magc.sensecane.framework.dao.DaoContainer;
-import com.magc.sensecane.model.database.TicketTable;
-import com.magc.sensecane.model.database.TicketUserTable;
-import com.magc.sensecane.model.database.UserTable;
-import com.magc.sensecane.model.domain.Ticket;
+import com.magc.sensecane.server.facade.DaoFacade;
+import com.magc.sensecane.server.model.PreSerializedJson;
+import com.magc.sensecane.server.model.User;
+import com.magc.sensecane.server.model.database.MessageTable;
+import com.magc.sensecane.server.model.filter.MessageFilter;
 
 import spark.Request;
 import spark.Response;
 
-public class GetUserTicketRoute extends AbstractRoute<String> {
+public class GetUserTicketRoute extends AbstractGetRoute<Object> {
 
 	public GetUserTicketRoute(Container container) {
 		super(container);
@@ -20,31 +18,25 @@ public class GetUserTicketRoute extends AbstractRoute<String> {
 
 	@Override
 	public String handle(Request request, Response response) throws Exception {
-		Ticket ticket = null;
+		Integer userId, messageId;
+		User user = null;
+		PreSerializedJson<MessageTable> result = null;
 		
-		try {
+		if (super.isValidRequest(request, response)) {
 			
-			Integer userId = Integer.valueOf(request.params(":user"));
-			Integer ticketId = Integer.valueOf(request.params(":ticket"));
+			userId = Integer.valueOf(request.params(":user"));
+			messageId = Integer.valueOf(request.params(":message"));
 			
-			ConversorContainer conversor = container.get(ConversorContainer.class);
-			DaoContainer daocontainer = container.get(DaoContainer.class);
+			if ( (user = DaoFacade.find(userId)) != null ) {
+				result = new PreSerializedJson<MessageTable>(DaoFacade.getUserMessages(user.getId(), MessageFilter.ANY).stream()
+					.filter(m -> m.getId().equals(messageId))
+					.findFirst().orElse(null)
+				);
+			}
 			
-			Dao<TicketTable> tdao = daocontainer.get(TicketTable.class);
-			Dao<TicketUserTable> tudao = daocontainer.get(TicketUserTable.class);
-			Dao<UserTable> udao = daocontainer.get(UserTable.class);
-			
-			UserTable usertable = udao.find(userId);
-			TicketUserTable ticketusertable = tudao.findAll().stream()
-					.filter(e -> e.getUserFrom().equals(usertable.getId()) && e.getTicketId().equals(ticketId))
-					.findFirst().orElse(null);
-			ticket = conversor.convert(tdao.find(ticketusertable.getTicketId()));
-			
-		} catch (Exception e) {
-			e.printStackTrace();
 		}
 		
-		return null;
+		return super.toJson(result);
 	}
 
 }

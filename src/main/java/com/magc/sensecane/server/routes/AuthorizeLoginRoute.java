@@ -7,8 +7,8 @@ import com.magc.sensecane.framework.container.Container;
 import com.magc.sensecane.framework.conversor.ConversorContainer;
 import com.magc.sensecane.framework.dao.Dao;
 import com.magc.sensecane.framework.dao.DaoContainer;
-import com.magc.sensecane.model.database.UserTable;
 import com.magc.sensecane.model.domain.User;
+import com.magc.sensecane.server.model.database.UserTable;
 
 import spark.Request;
 import spark.Response;

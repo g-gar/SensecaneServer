@@ -1,14 +1,10 @@
 package com.magc.sensecane.server.routes;
 
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.google.gson.JsonDeserializationContext;
-import com.google.gson.JsonDeserializer;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
-import com.google.gson.JsonParseException;
 import com.google.gson.JsonParser;
 import com.magc.sensecane.framework.container.Container;
 
@@ -22,13 +18,13 @@ public abstract class AbstractPostRoute<T> extends AbstractRoute<T> {
 	}
 
 	@Override
-	public T handle(Request request, Response response) throws Exception {
+	public Boolean isValidRequest(Request request, Response response) throws Exception {
 		if (!request.requestMethod().equals("POST")) {
 			response.status(500);
 			throw new Exception(String.format("Not an HTTP POST request [%s]\n", request.matchedPath()));
 		}
 		
-		return null;
+		return true;
 	}
 	
 	public Map<String, String> getParams(Request request, String...keys) {

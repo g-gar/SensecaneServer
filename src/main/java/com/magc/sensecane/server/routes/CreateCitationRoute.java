@@ -9,14 +9,14 @@ import com.magc.sensecane.framework.dao.Dao;
 import com.magc.sensecane.framework.dao.DaoContainer;
 import com.magc.sensecane.framework.exception.InstanceNotFoundException;
 import com.magc.sensecane.framework.model.BaseEntity;
-import com.magc.sensecane.model.database.CitationTable;
 import com.magc.sensecane.model.database.DoctorPatientCitationTable;
 import com.magc.sensecane.model.database.TypeTable;
-import com.magc.sensecane.model.database.UserTable;
-import com.magc.sensecane.model.database.UserTypeTable;
 import com.magc.sensecane.model.domain.Citation;
 import com.magc.sensecane.model.domain.User;
 import com.magc.sensecane.model.domain.UserType;
+import com.magc.sensecane.server.model.UserTypeTable;
+import com.magc.sensecane.server.model.database.CitationTable;
+import com.magc.sensecane.server.model.database.UserTable;
 
 import spark.Request;
 import spark.Response;

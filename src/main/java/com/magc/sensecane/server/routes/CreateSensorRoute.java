@@ -9,8 +9,8 @@ import com.magc.sensecane.framework.dao.Dao;
 import com.magc.sensecane.framework.dao.DaoContainer;
 import com.magc.sensecane.model.database.SensorPatientTable;
 import com.magc.sensecane.model.database.SensorTable;
-import com.magc.sensecane.model.database.UserTable;
 import com.magc.sensecane.model.domain.Sensor;
+import com.magc.sensecane.server.model.database.UserTable;
 
 import spark.Request;
 import spark.Response;

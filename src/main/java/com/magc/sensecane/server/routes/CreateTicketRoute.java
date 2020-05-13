@@ -9,8 +9,8 @@ import com.magc.sensecane.framework.dao.Dao;
 import com.magc.sensecane.framework.dao.DaoContainer;
 import com.magc.sensecane.model.database.TicketTable;
 import com.magc.sensecane.model.database.TicketUserTable;
-import com.magc.sensecane.model.database.UserTable;
 import com.magc.sensecane.model.domain.Ticket;
+import com.magc.sensecane.server.model.database.UserTable;
 
 import spark.Request;
 import spark.Response;
