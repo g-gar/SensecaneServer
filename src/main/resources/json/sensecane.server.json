@@ -1,28 +1,15 @@
 {
 	"dao": {
-		"com.magc.sensecane.model.database.CitationTable": "com.magc.sensecane.server.dao.CitationDao",
-		"com.magc.sensecane.model.database.DoctorPatientCitationTable": "com.magc.sensecane.server.dao.DoctorPatientCitationDao",
-		"com.magc.sensecane.model.database.SensorTable": "com.magc.sensecane.server.dao.SensorDao",
-		"com.magc.sensecane.model.database.SensorPatientTable": "com.magc.sensecane.server.dao.SensorPatientDao",
-		"com.magc.sensecane.model.database.TicketTable": "com.magc.sensecane.server.dao.TicketDao",
-		"com.magc.sensecane.model.database.TicketUserTable": "com.magc.sensecane.server.dao.TicketUserDao",
-		"com.magc.sensecane.model.database.TypeTable": "com.magc.sensecane.server.dao.TypeDao",
-		"com.magc.sensecane.model.database.UserTable": "com.magc.sensecane.server.dao.UserDao",
-		"com.magc.sensecane.model.database.UserTokenTable": "com.magc.sensecane.server.dao.UserTokenDao",
-		"com.magc.sensecane.model.database.UserTypeTable": "com.magc.sensecane.server.dao.UserTypeDao"
-	},
-	"conversor": {
-		"com.magc.sensecane.model.domain.User": "com.magc.sensecane.server.conversor.UserConversor",
-		"com.magc.sensecane.model.database.UserTable": "com.magc.sensecane.server.conversor.UserTableConversor",
-		"com.magc.sensecane.model.domain.UserType": "com.magc.sensecane.server.conversor.UserTypeConversor",
-		"com.magc.sensecane.model.database.TypeTable": "com.magc.sensecane.server.conversor.TypeTableConversor",
-		"com.magc.sensecane.model.domain.Citation": "com.magc.sensecane.server.conversor.CitationConversor",
-		"com.magc.sensecane.model.database.CitationTable": "com.magc.sensecane.server.conversor.CitationTableConversor",
-		"com.magc.sensecane.model.domain.Measurement": "com.magc.sensecane.server.conversor.MeasurementConversor",
-		"com.magc.sensecane.model.domain.Sensor": "com.magc.sensecane.server.conversor.SensorConversor",
-		"com.magc.sensecane.model.database.SensorTable": "com.magc.sensecane.server.conversor.SensorTableConversor",
-		"com.magc.sensecane.model.domain.Ticket": "com.magc.sensecane.server.conversor.TicketConversor",
-		"com.magc.sensecane.model.database.TicketTable": "com.magc.sensecane.server.conversor.TicketTableConversor"
+		"com.magc.sensecane.server.model.database.UserTable": "com.magc.sensecane.server.dao.UserDao",
+		"com.magc.sensecane.server.model.database.CarerTable": "com.magc.sensecane.server.dao.CarerDao",
+		"com.magc.sensecane.server.model.database.DoctorTable": "com.magc.sensecane.server.dao.DoctorDao",
+		"com.magc.sensecane.server.model.database.PatientTable": "com.magc.sensecane.server.dao.PatientDao",
+		"com.magc.sensecane.server.model.database.PatientCarerTable": "com.magc.sensecane.server.dao.PatientCarerDao",
+		"com.magc.sensecane.server.model.database.PatientDoctorTable": "com.magc.sensecane.server.dao.PatientDoctorDao",
+		"com.magc.sensecane.server.model.database.PatientSensorTable": "com.magc.sensecane.server.dao.PatientSensorDao",
+		"com.magc.sensecane.server.model.database.SensorDataTable": "com.magc.sensecane.server.dao.SensorDataDao",
+		"com.magc.sensecane.server.model.database.CitationTable": "com.magc.sensecane.server.dao.CitationDao",
+		"com.magc.sensecane.server.model.database.MessageTable": "com.magc.sensecane.server.dao.MessageDao"
 	},
 	"restroute": {
 		"get": {
@@ -32,15 +19,15 @@
 			"/users/:user/sensors/:sensor/": "com.magc.sensecane.server.routes.GetUserSensorRoute",
 			"/users/:user/citations/": "com.magc.sensecane.server.routes.GetUserCitationsRoute",
 			"/users/:user/citations/:citation/": "com.magc.sensecane.server.routes.GetUserCitationRoute",
-			"/users/:user/tickets/": "com.magc.sensecane.server.routes.GetUserTicketsRoute",
-			"/users/:user/tickets/:ticket/": "com.magc.sensecane.server.routes.GetUserTicketRoute",
+			"/users/:user/messages/": "com.magc.sensecane.server.routes.GetUserTicketsRoute",
+			"/users/:user/messages/:message/": "com.magc.sensecane.server.routes.GetUserTicketRoute",
 			"/users/:user/sensors/:sensor/measurements/": "com.magc.sensecane.server.routes.GetUserSensorMeasurements"
 		},
 		"post": {
 			"/users/": "com.magc.sensecane.server.routes.CreateUserRoute",
 			"/sensors/": "com.magc.sensecane.server.routes.CreateSensorRoute",
 			"/citations/": "com.magc.sensecane.server.routes.CreateCitationRoute",
-			"/tickets/": "com.magc.sensecane.server.routes.CreateTicketRoute",
+			"/messages/": "com.magc.sensecane.server.routes.CreateTicketRoute",
 			"/login/": "com.magc.sensecane.server.routes.AuthorizeLoginRoute"
 		},
 		"put": {
@@ -51,12 +38,19 @@
 		}
 	},
 	"database": {
-		"connectionfactory": "com.magc.sensecane.database.MariaDBConnectionFactory",
-		"connectionpool": "com.magc.sensecane.framework.database.connection.pool.AbstractConnectionPool",
-		"connectionproperties": "com.magc.sensecane.database.MariaDBConnectionProperties",
+		"connectionfactory": "com.magc.sensecane.framework.database.MariaDBConnectionFactory",
+		"connectionpool": {
+			"implementation": "com.magc.sensecane.framework.database.connection.pool.AbstractConnectionPool",
+			"n": "20"
+		},
+		"connectionproperties": "com.magc.sensecane.framework.database.MariaDBConnectionProperties",
 		"dbserver": "jdbc:mariadb://2.139.176.212:3306",
 		"username": "pr_magc",
 		"password": "pr_magc_technologies",
 		"schema": "pr_magc"
+	},
+	"server": {
+		"host": "localhost",
+		"port": "85"
 	}
 }

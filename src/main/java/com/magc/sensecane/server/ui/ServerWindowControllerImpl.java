@@ -33,11 +33,14 @@ public class ServerWindowControllerImpl extends AbstractController implements Se
 
 	public ServerWindowControllerImpl(URL fxml) {
 		super(fxml);
+		button.setSelected(true);
+		gridpane.setStyle(String.format("-fx-background-color:%s; -fx-opacity:%s;", "#b4c4b4", "1"));
+		button.setText("Stop");
 	}
 	
 	@Override
 	public void switchState() {
-		this.switchTo(true && button.isSelected());	
+		this.switchTo(!button.isSelected());	
 	}
 
 	@Override
@@ -47,15 +50,15 @@ public class ServerWindowControllerImpl extends AbstractController implements Se
 		String text = "Start";
 		
 		if (state) {
+			App.getInstance().stopServer();
+		} else {
 			background = "#b4c4b4";
 			text = "Stop";
 			App.getInstance().init();
-		} else {
-			App.getInstance().destroy();
 		}
 		gridpane.setStyle(String.format("-fx-background-color:%s; -fx-opacity:%s;", background, opacity));
 		button.setText(text);
-		button.setSelected(state);
+		button.setSelected(!state);
 	}
 
 	@Override

@@ -12,14 +12,14 @@ public abstract class AbstractGetRoute<T> extends AbstractRoute<T> {
 	}
 
 	@Override
-	public T handle(Request request, Response response) throws Exception {
+	public Boolean isValidRequest(Request request, Response response) throws Exception {
 
 		if (!request.requestMethod().equals("GET")) {
 			response.status(500);
 			throw new Exception(String.format("Not an HTTP GET request [%s]\n", request.matchedPath()));
 		}
 		
-		return null;
+		return true;
 	}
 
 }

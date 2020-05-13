@@ -3,13 +3,10 @@ package com.magc.sensecane.server.routes;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.google.gson.GsonBuilder;
 import com.magc.sensecane.framework.container.Container;
-import com.magc.sensecane.framework.conversor.ConversorContainer;
-import com.magc.sensecane.framework.dao.Dao;
-import com.magc.sensecane.framework.dao.DaoContainer;
-import com.magc.sensecane.model.database.UserTable;
-import com.magc.sensecane.model.domain.User;
+import com.magc.sensecane.server.facade.DaoFacade;
+import com.magc.sensecane.server.model.PreSerializedJson;
+import com.magc.sensecane.server.model.User;
 
 import spark.Request;
 import spark.Response;
@@ -22,23 +19,23 @@ public class ViewAllUsersRoute extends AbstractGetRoute<String> {
 
 	@Override
 	public String handle(Request request, Response response) throws Exception {
-		List<User> result = null;
+		List<PreSerializedJson<User>> result = null;
 		
-		if (super.handle(request, response) == null) {
+		if (super.isValidRequest(request, response)) {
 			
-			System.out.println(request.ip());
-			System.out.println(request.userAgent());
+//			System.out.println(request.ip());
+//			System.out.println(request.userAgent());
+
+			result = DaoFacade.getAllUsers().stream()
+				.map(e->DaoFacade.getUserInfo(e.getId()))
+				.map(e -> new PreSerializedJson<User>(e, "password", "token", "ip", "userAgent"))
+				.collect(Collectors.toList());
 			
-			DaoContainer daocontainer = container.get(DaoContainer.class);
-			Dao<UserTable> dao = daocontainer.get(UserTable.class);
-			ConversorContainer conversorContainer = container.get(ConversorContainer.class);
 			response.status(200);
 			response.type("application/json");
-			result = dao.findAll().stream().map((UserTable e) -> (User) conversorContainer.convert(e)).collect(Collectors.toList());
-			result.sort((a,b) -> a.getId() > b.getId() ? 1 : a.getId() < b.getId() ? -1 : 0);
 		}
-		
-		return new GsonBuilder().serializeNulls().setPrettyPrinting().create().toJson(result);
+
+		return super.toJson(result);
 	}
 
 }

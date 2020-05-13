@@ -9,11 +9,11 @@ import com.magc.sensecane.framework.dao.Dao;
 import com.magc.sensecane.framework.dao.DaoContainer;
 import com.magc.sensecane.framework.security.Md5Encode;
 import com.magc.sensecane.model.database.TypeTable;
-import com.magc.sensecane.model.database.UserTable;
-import com.magc.sensecane.model.database.UserTokenTable;
-import com.magc.sensecane.model.database.UserTypeTable;
 import com.magc.sensecane.model.domain.User;
 import com.magc.sensecane.model.domain.UserType;
+import com.magc.sensecane.server.model.UserTokenTable;
+import com.magc.sensecane.server.model.UserTypeTable;
+import com.magc.sensecane.server.model.database.UserTable;
 
 import spark.Request;
 import spark.Response;

@@ -11,20 +11,20 @@ import com.magc.sensecane.framework.container.Container;
 import spark.Request;
 import spark.Response;
 
-public class AbstractPutRoute extends AbstractRoute<String> {
+public abstract class AbstractPutRoute<T> extends AbstractRoute<T> {
 
 	public AbstractPutRoute(Container container) {
 		super(container);
 	}
 
 	@Override
-	public String handle(Request request, Response response) throws Exception {
+	public Boolean isValidRequest(Request request, Response response) throws Exception {
 		if (!request.requestMethod().equals("PUT")) {
 			response.status(500);
 			throw new Exception(String.format("Not an HTTP POST request [%s]\n", request.matchedPath()));
 		}
 		
-		return null;
+		return true;
 	}
 
 	public Map<String, String> getParams(Request request, String...keys) {
