@@ -10,6 +10,7 @@ import com.magc.sensecane.framework.dao.DaoContainer;
 import com.magc.sensecane.framework.exception.InstanceNotFoundException;
 import com.magc.sensecane.framework.generics.MonoParameterizedFunction;
 import com.magc.sensecane.server.App;
+import com.magc.sensecane.server.facade.AbstractDaoUtil;
 import com.magc.sensecane.server.model.Type;
 import com.magc.sensecane.server.model.User;
 import com.magc.sensecane.server.model.database.CarerTable;

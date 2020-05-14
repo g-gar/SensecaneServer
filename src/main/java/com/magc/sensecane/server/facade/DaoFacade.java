@@ -1,6 +1,7 @@
 package com.magc.sensecane.server.facade;
 
 import java.util.List;
+import java.util.Map;
 
 import com.magc.sensecane.framework.container.Container;
 import com.magc.sensecane.server.App;
@@ -14,6 +15,7 @@ import com.magc.sensecane.server.facade.dao.GetUserSensorDataUtil;
 import com.magc.sensecane.server.facade.dao.GetUserSensorUtil;
 import com.magc.sensecane.server.facade.dao.GetUserSensorsUtil;
 import com.magc.sensecane.server.facade.dao.GetUserTypeUtil;
+import com.magc.sensecane.server.facade.dao.UpdateUserUtil;
 import com.magc.sensecane.server.model.Type;
 import com.magc.sensecane.server.model.User;
 import com.magc.sensecane.server.model.database.CitationTable;
@@ -66,5 +68,9 @@ public class DaoFacade {
 	
 	public static <T,U> CitationTable getUserCitation(T param1, U param2, CitationFilter filter) {
 		return new GetUserCitationUtil<T, U>(container).apply(param1, param2, filter);
+	}
+	
+	public static User updateUser(Map<String, String> params) {
+		return new UpdateUserUtil(container).apply(params);
 	}
 }

@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 
 import com.magc.sensecane.framework.container.Container;
 import com.magc.sensecane.framework.generics.MonoParameterizedFunction;
+import com.magc.sensecane.server.facade.AbstractDaoUtil;
 import com.magc.sensecane.server.model.Type;
 import com.magc.sensecane.server.model.User;
 import com.magc.sensecane.server.model.database.PatientSensorTable;

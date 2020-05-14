@@ -1,5 +1,6 @@
 package com.magc.sensecane.server;
 
+import java.io.File;
 import java.io.FileReader;
 import java.net.MalformedURLException;
 import java.util.Arrays;
@@ -53,8 +54,8 @@ public class App extends JavaFxApplication implements SparkApplication {
 
 //			File file = loadresource.execute("json/sensecane.server.json");
 //			FileReader reader = new FileReader(file);
-			String json = "json/sensecane.server.json";
-
+			File json = app.get(LoadResource.class).execute("json/sensecane.server.json");
+			
 			List<Class> parsers = Arrays
 					.asList(new Class[] { ServerConfigurationJsonParser.class, DBConfigurationJsonParser.class,
 							ConfigurationJsonParser.class, RestApiConfigurationJsonParser.class });
@@ -64,7 +65,7 @@ public class App extends JavaFxApplication implements SparkApplication {
 						.getConstructor(Container.class).newInstance(app);
 				new GsonBuilder().setPrettyPrinting().serializeNulls()
 						.registerTypeAdapter(Container.class, deserializer).create()
-						.fromJson(new FileReader(app.get(LoadResource.class).execute(json)), Container.class);
+						.fromJson(new FileReader(json), Container.class);
 			}
 
 //			reader.close();

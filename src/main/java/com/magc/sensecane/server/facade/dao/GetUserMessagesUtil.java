@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 
 import com.magc.sensecane.framework.container.Container;
 import com.magc.sensecane.framework.generics.BiParameterizedFunction;
+import com.magc.sensecane.server.facade.AbstractDaoUtil;
 import com.magc.sensecane.server.model.User;
 import com.magc.sensecane.server.model.database.MessageTable;
 import com.magc.sensecane.server.model.database.UserTable;

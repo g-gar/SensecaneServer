@@ -2,6 +2,7 @@ package com.magc.sensecane.server.facade.dao;
 
 import com.magc.sensecane.framework.container.Container;
 import com.magc.sensecane.framework.generics.BiParameterizedFunction;
+import com.magc.sensecane.server.facade.AbstractDaoUtil;
 import com.magc.sensecane.server.model.Type;
 import com.magc.sensecane.server.model.User;
 import com.magc.sensecane.server.model.database.PatientSensorTable;

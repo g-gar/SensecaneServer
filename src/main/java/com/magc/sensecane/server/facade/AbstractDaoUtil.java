@@ -1,4 +1,4 @@
-package com.magc.sensecane.server.facade.dao;
+package com.magc.sensecane.server.facade;
 
 import com.magc.sensecane.framework.container.Container;
 import com.magc.sensecane.framework.dao.Dao;
@@ -14,7 +14,7 @@ public abstract class AbstractDaoUtil extends AbstractFacadeUtil {
 		this.container = container;
 	}
 
-	public <A, T extends TableEntity<A>> Dao<T> get(Class<T> clazz) {
+	public <T extends TableEntity> Dao<T> get(Class<T> clazz) {
 		return container.get(DaoContainer.class).get(clazz);
 	}
 	

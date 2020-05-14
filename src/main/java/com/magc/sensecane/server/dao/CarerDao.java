@@ -1,6 +1,7 @@
 package com.magc.sensecane.server.dao;
 
 import com.magc.sensecane.framework.dao.CachedDao;
+import com.magc.sensecane.framework.dao.Dao;
 import com.magc.sensecane.framework.dao.DaoContainer;
 import com.magc.sensecane.framework.database.connection.pool.ConnectionPool;
 import com.magc.sensecane.server.App;
@@ -23,10 +24,18 @@ public class CarerDao extends CachedDao<CarerTable> {
 	public CarerTable insertOrUpdate(CarerTable entity) {
 		CarerTable result = null;
 		
-		UserTable u = App.getInstance().get(DaoContainer.class).get(UserTable.class).insertOrUpdate(new UserTable(entity.getId()));
-		if (u.getId() != null) {
-			CarerTable carer = new CarerTable(u.getId(), entity.getUsername(), entity.getPassword(), entity.getDni(), entity.getToken(), entity.getFirstName(), entity.getLastName(), entity.getIp(), entity.getUserAgent(), entity.getLastLogin());
-			result = super.insert(carer);
+		try {
+			Dao<UserTable> udao = App.getInstance().get(DaoContainer.class).get(UserTable.class);
+			Dao<CarerTable> cdao = App.getInstance().get(DaoContainer.class).get(CarerTable.class);
+			
+			UserTable u = udao.insertOrUpdate(new UserTable(entity.getId()));
+			if (cdao.find(u.getId()) == null) {
+				result = super.insert(new CarerTable(u.getId(), entity.getUsername(), entity.getPassword(), entity.getDni(), entity.getToken(), entity.getFirstName(), entity.getLastName(), entity.getIp(), entity.getUserAgent(), entity.getLastLogin()));
+			} else {
+				result = super.update(entity);
+			}
+		} catch (Exception e) {
+			throw new RuntimeException(e);
 		}
 		
 		return result;

@@ -1,17 +1,21 @@
 package com.magc.sensecane.server.routes;
 
+import java.util.Map;
+
 import com.magc.sensecane.framework.container.Container;
 import com.magc.sensecane.framework.conversor.ConversorContainer;
 import com.magc.sensecane.framework.dao.Dao;
 import com.magc.sensecane.framework.dao.DaoContainer;
+import com.magc.sensecane.framework.model.json.PreSerializedJson;
 import com.magc.sensecane.framework.spark.AbstractPutRoute;
+import com.magc.sensecane.server.facade.DaoFacade;
 import com.magc.sensecane.server.model.User;
 import com.magc.sensecane.server.model.database.UserTable;
 
 import spark.Request;
 import spark.Response;
 
-public class UpdateUserRoute extends AbstractPutRoute {
+public class UpdateUserRoute extends AbstractPutRoute<Void> {
 
 	public UpdateUserRoute(Container container) {
 		super(container);
@@ -19,26 +23,17 @@ public class UpdateUserRoute extends AbstractPutRoute {
 
 	@Override
 	public String handle(Request request, Response response) throws Exception {
-		User user = null;
-		
-		if (super.isValidRequest(request, response)) {
-			
-			
-			
+		PreSerializedJson<User> result = null;
+		try {
+			if (super.isValidRequest(request, response)) {
+				Map<String, String> params = super.getParams(request, "id", "username", "password", "dni", "firstName", "lastName");
+				result = new PreSerializedJson<User>(DaoFacade.updateUser(params), "password", "token", "ip", "userAgent", "lastLogin");
+				
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
 		
-		
-		if (p.containsKey("id") && p.containsKey("username") && p.containsKey("password")) {
-			
-			DaoContainer daocontainer = container.get(DaoContainer.class);
-			ConversorContainer conversor = container.get(ConversorContainer.class);
-			Dao<UserTable> udao = daocontainer.get(UserTable.class);
-			
-			UserTable ut = udao.find(Integer.valueOf(p.get("id")));
-			UserTable usertable = udao.insertOrUpdate(new UserTable(ut.getId(), p.get("username"), p.get("password")));
-			user = conversor.convert(usertable);
-		}
-		
-		return super.toJson(user);
+		return super.toJson(result);
 	}
 }
