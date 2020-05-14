@@ -37,7 +37,7 @@ public class GetUserSensorsUtil<T> extends AbstractDaoUtil implements MonoParame
 	private List<PatientSensorTable> execute(Integer id) {
 		return new GetUserTypeUtil<Integer>(container).apply(id) == Type.PATIENT 
 				? get(PatientSensorTable.class).findAll().stream()
-						.filter(e -> e.getPatientId().equals(id))
+						.filter(e -> e.getPatient().equals(id))
 						.collect(Collectors.toList())
 				: null;
 	}

@@ -28,7 +28,7 @@ public class GetUserCitationUtil<T, S> extends AbstractDaoUtil implements TriPar
 	}
 	
 	private CitationTable execute(Integer userId, Integer citationId, CitationFilter filter) {
-		return new FindUserUtil(container).apply(userId) != null 
+		return new GetUserUtil(container).apply(userId) != null 
 				? new GetUserCitationsUtil<Integer>(container).apply(userId, filter).stream()
 					.filter(e -> e.getId().equals(citationId))
 					.findFirst().orElse(null)

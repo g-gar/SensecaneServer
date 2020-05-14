@@ -15,7 +15,7 @@ public class PatientSensorDao extends CachedDao<PatientSensorTable> {
 		return new PatientSensorTable(
 			Integer.parseInt(parameters[0]),
 			Integer.parseInt(parameters[1]),
-			Integer.parseInt(parameters[2])
+			parameters[2]
 		);
 	}
 

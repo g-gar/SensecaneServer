@@ -8,9 +8,9 @@ import com.magc.sensecane.server.facade.DaoFacade;
 import com.magc.sensecane.server.model.User;
 import com.magc.sensecane.server.model.database.UserTable;
 
-public class FindUserUtil extends AbstractDaoUtil implements MonoParameterizedFunction<Integer, User> {
+public class GetUserUtil extends AbstractDaoUtil implements MonoParameterizedFunction<Integer, User> {
 
-	public FindUserUtil(Container container) {
+	public GetUserUtil(Container container) {
 		super(container);
 	}
 

@@ -25,10 +25,16 @@ public class GetUserSensorUtil<T> extends AbstractDaoUtil implements BiParameter
 		return this.execute(param1.getId(), param2);
 	}
 	
+	/**
+	 * throw exception when user has no type patient
+	 * @param param1
+	 * @param param2
+	 * @return
+	 */
 	private PatientSensorTable execute(Integer param1, Integer param2) {
 		return new GetUserTypeUtil<Integer>(container).apply(param1) == Type.PATIENT 
 				? new GetUserSensorsUtil<Integer>(container).apply(param1).stream()
-					.filter(s -> s.getSensorId().equals(param2))
+					.filter(s -> s.getId().equals(param2))
 					.findFirst().orElse(null)
 				: null;
 	}

@@ -49,8 +49,6 @@ public class App extends JavaFxApplication implements SparkApplication {
 			app.register(loadresource);
 
 			app.register(Service.class, Service.ignite());
-//			this.get(Service.class).ipAddress("localhost");
-//			this.get(Service.class).port(81);
 
 //			File file = loadresource.execute("json/sensecane.server.json");
 //			FileReader reader = new FileReader(file);
@@ -73,12 +71,15 @@ public class App extends JavaFxApplication implements SparkApplication {
 			// Util<String, Void> initDB = new InitializeDatabase(this);
 			// initDB.execute(loadresource.execute("json/database.ddl.json").getAbsolutePath());
 
-			app.get(Service.class).options("*", Options.enableCors);
+//			app.get(Service.class).options("*", Options.enableCors);
 
-			app.get(Service.class).before("*", Filters.addTrailingSlashes);
-			app.get(Service.class).before("*", Filters.addCorsHeader);
+//			app.get(Service.class).before("*", Filters.addTrailingSlashes);
+//			app.get(Service.class).before("*", Filters.addCorsHeader);
+//			app.get(Service.class).before("*", Filters.postAcceptsJson);
 //			app.get(Service.class).options("*", Filters.handleLocaleChange);
-			app.get(Service.class).after("*", Filters.addGzipHeader);
+//			app.get(Service.class).after("*", Filters.addGzipHeader);
+//			app.get(Service.class).after("*", Filters.returnsJson);
+//			app.get(Service.class).after("*", Filters.setContentlength);
 
 			DaoContainer daocache = app.get(DaoContainer.class);
 			for (Class<? extends BaseEntity> table : daocache.getKeys()) {

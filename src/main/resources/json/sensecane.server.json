@@ -21,13 +21,14 @@
 			"/users/:user/citations/:citation/": "com.magc.sensecane.server.routes.GetUserCitationRoute",
 			"/users/:user/messages/": "com.magc.sensecane.server.routes.GetUserTicketsRoute",
 			"/users/:user/messages/:message/": "com.magc.sensecane.server.routes.GetUserTicketRoute",
-			"/users/:user/sensors/:sensor/measurements/": "com.magc.sensecane.server.routes.GetUserSensorMeasurements"
+			"/users/:user/sensors/:sensor/data/": "com.magc.sensecane.server.routes.GetUserSensorMeasurements"
 		},
 		"post": {
 			"/users/": "com.magc.sensecane.server.routes.CreateUserRoute",
 			"/sensors/": "com.magc.sensecane.server.routes.CreateSensorRoute",
+			"/sensors/data/": "com.magc.sensecane.server.routes.RegisterSensorDataRoute",
 			"/citations/": "com.magc.sensecane.server.routes.CreateCitationRoute",
-			"/messages/": "com.magc.sensecane.server.routes.CreateTicketRoute",
+			"/messages/": "com.magc.sensecane.server.routes.RegisterMessageRoute",
 			"/login/": "com.magc.sensecane.server.routes.AuthorizeLoginRoute"
 		},
 		"put": {

@@ -15,9 +15,9 @@ import com.magc.sensecane.server.model.database.CarerTable;
 import com.magc.sensecane.server.model.database.DoctorTable;
 import com.magc.sensecane.server.model.database.PatientTable;
 
-public class UpdateUserUtil extends AbstractDaoUtil implements MonoParameterizedFunction<Map<String, String>, User> {
+public class CreateOrUpdateUserUtil extends AbstractDaoUtil implements MonoParameterizedFunction<Map<String, String>, User> {
 
-	public UpdateUserUtil(Container container) {
+	public CreateOrUpdateUserUtil(Container container) {
 		super(container);
 	}
 
@@ -27,34 +27,34 @@ public class UpdateUserUtil extends AbstractDaoUtil implements MonoParameterized
 		User user = DaoFacade.find(Integer.parseInt(params.get("id")));
 		switch (new GetUserTypeUtil<User>(container).apply(user)) {
 			case CARER:
-				result = asCarer(user, params);
+				result = create(CarerTable.class, user, params);
 				break;
 			case PATIENT:
-				result = asPatient(user, params);
+				result = create(PatientTable.class, user, params);
 				break;
 			case DOCTOR:
-				result = asDoctor(user, params);
+				result = create(DoctorTable.class, user, params);
 				break;
 		}
 		return result;
 	}
-
-	private User asCarer(User user, Map<String, String> params) {
-		return create(CarerTable.class, user.getId(), params.get("username"), params.get("password"), user.getDni(), 
-				user.getToken(), params.get("firstName"), params.get("lastName"), user.getIp(), user.getUserAgent(), user.getLastLogin());
-	}
 	
-	private User asPatient(User user, Map<String, String> params) {
-		return create(PatientTable.class, user.getId(), params.get("username"), params.get("password"), user.getDni(), 
-				user.getToken(), params.get("firstName"), params.get("lastName"), user.getIp(), user.getUserAgent(), user.getLastLogin());
-	}
-	
-	private User asDoctor(User user, Map<String, String> params) {
-		return create(DoctorTable.class, user.getId(), params.get("username"), params.get("password"), user.getDni(), 
-				user.getToken(), params.get("firstName"), params.get("lastName"), user.getIp(), user.getUserAgent(), user.getLastLogin());
+	private <T extends TableEntity> User create(Class<T> clazz, User user, Map<String,String> params) {
+		return create(
+			clazz,
+			get(params, "id", user.getId()).equals("null") ? Integer.parseInt(get(params, "id", user.getId())) : null,
+			get(params, "username", user.getUsername()),
+			get(params, "password", user.getPassword()),
+			get(params, "dni", user.getDni()),
+			get(params, "token", user.getDni()),
+			get(params, "firstName", user.getFirstName()),
+			get(params, "lastName", user.getLastName()),
+			get(params, "ip", user.getIp()),
+			get(params, "userAgent", user.getUserAgent()),
+			get(params, "lastLogin", user.getLastLogin()).equals("null") ? Long.valueOf(get(params, "lastLogin", user.getLastLogin())) : null
+		);
 	}
 
-	@SuppressWarnings({ "rawtypes", "unchecked" })
 	private <T extends TableEntity> User create(Class<T> clazz, Integer id, String username, String password, String dni, String token, String firstName, String lastName, String ip, String userAgent, Long lastLogin) {
 		User result = null;
 		try {
@@ -67,6 +67,18 @@ public class UpdateUserUtil extends AbstractDaoUtil implements MonoParameterized
 		}
 		
 		return result;
+	}
+	
+	private String get(Map<String,String> params, String key) {
+		return params.containsKey(key)
+			? params.get(key)
+			: "";
+	}
+	
+	private <T> String get(Map<String,String> params, String key, T defaultValue) {
+		return params.containsKey(key)
+			? params.get(key)
+			: "" + defaultValue;
 	}
 }
 

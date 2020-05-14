@@ -31,6 +31,10 @@ public class GetUserTypeUtil<T> extends AbstractDaoUtil implements MonoParameter
 		);
 	}
 	
+	private Type execute(User user) {
+		return this.execute(user.getId());
+	}
+	
 	private Type execute(Integer id) {
 		Map<Type, Dao> daos = new HashMap<Type, Dao>() {
 			{
@@ -53,9 +57,5 @@ public class GetUserTypeUtil<T> extends AbstractDaoUtil implements MonoParameter
 			}
 		}
 		return type;
-	}
-
-	private Type execute(User user) {
-		return this.execute(user.getId());
 	}
 }

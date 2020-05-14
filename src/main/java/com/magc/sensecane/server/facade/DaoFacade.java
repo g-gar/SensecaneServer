@@ -5,8 +5,7 @@ import java.util.Map;
 
 import com.magc.sensecane.framework.container.Container;
 import com.magc.sensecane.server.App;
-import com.magc.sensecane.server.facade.dao.FindUserUtil;
-import com.magc.sensecane.server.facade.dao.GetAllUsersUtil;
+import com.magc.sensecane.server.facade.dao.CreateOrUpdateUserUtil;
 import com.magc.sensecane.server.facade.dao.GetUserCitationUtil;
 import com.magc.sensecane.server.facade.dao.GetUserCitationsUtil;
 import com.magc.sensecane.server.facade.dao.GetUserInfoUtil;
@@ -15,7 +14,10 @@ import com.magc.sensecane.server.facade.dao.GetUserSensorDataUtil;
 import com.magc.sensecane.server.facade.dao.GetUserSensorUtil;
 import com.magc.sensecane.server.facade.dao.GetUserSensorsUtil;
 import com.magc.sensecane.server.facade.dao.GetUserTypeUtil;
-import com.magc.sensecane.server.facade.dao.UpdateUserUtil;
+import com.magc.sensecane.server.facade.dao.GetUserUtil;
+import com.magc.sensecane.server.facade.dao.GetUsersUtil;
+import com.magc.sensecane.server.facade.dao.RegisterMessageUtil;
+import com.magc.sensecane.server.facade.dao.RegisterSensorDataUtil;
 import com.magc.sensecane.server.model.Type;
 import com.magc.sensecane.server.model.User;
 import com.magc.sensecane.server.model.database.CitationTable;
@@ -31,7 +33,7 @@ public class DaoFacade {
 	private static final Container container = App.getInstance();
 	
 	public static List<UserTable> getAllUsers() {
-		return new GetAllUsersUtil(container).apply();
+		return new GetUsersUtil(container).apply();
 	}
 	
 	public static <T> User getUserInfo(T param) {
@@ -43,7 +45,7 @@ public class DaoFacade {
 	}
 	
 	public static User find(Integer id) {
-		return new FindUserUtil(container).apply(id);
+		return new GetUserUtil(container).apply(id);
 	}
 	
 	public static <T> List<MessageTable> getUserMessages(T param, MessageFilter filter) {
@@ -70,7 +72,15 @@ public class DaoFacade {
 		return new GetUserCitationUtil<T, U>(container).apply(param1, param2, filter);
 	}
 	
-	public static User updateUser(Map<String, String> params) {
-		return new UpdateUserUtil(container).apply(params);
+	public static User createOrUpdateUser(Map<String, String> params) {
+		return new CreateOrUpdateUserUtil(container).apply(params);
+	}
+	
+	public static <T> MessageTable registerMessage(T from, T to, Map<String,String> params) {
+		return new RegisterMessageUtil<T>(container).apply(from, to, params);
+	}
+	
+	public static <T> SensorDataTable registerSensorData(T userId, T sensorId, Map<String,String> params) {
+		return new RegisterSensorDataUtil<T>(container).apply(userId, sensorId, params);
 	}
 }

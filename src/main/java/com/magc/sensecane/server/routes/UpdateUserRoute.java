@@ -27,7 +27,7 @@ public class UpdateUserRoute extends AbstractPutRoute<Void> {
 		try {
 			if (super.isValidRequest(request, response)) {
 				Map<String, String> params = super.getParams(request, "id", "username", "password", "dni", "firstName", "lastName");
-				result = new PreSerializedJson<User>(DaoFacade.updateUser(params), "password", "token", "ip", "userAgent", "lastLogin");
+				result = new PreSerializedJson<User>(DaoFacade.createOrUpdateUser(params), "password", "token", "ip", "userAgent", "lastLogin");
 				
 			}
 		} catch (Exception e) {

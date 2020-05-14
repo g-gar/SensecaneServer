@@ -31,8 +31,8 @@ public class GetUserSensorDataUtil<A, B> extends AbstractDaoUtil implements BiPa
 	private List<SensorDataTable> execute(Integer userId, Integer sensorId) {
 		List<PatientSensorTable> sensors = new GetUserSensorsUtil<Integer>(container).apply(userId);
 		return get(SensorDataTable.class).findAll().stream()
-				.filter(e -> sensors.contains(new GetUserSensorUtil<Integer>(container).apply(userId, e.getSensorId())))
-				.filter(e -> e.getSensorId().equals(sensorId))
+				.filter(e -> sensors.contains(new GetUserSensorUtil<Integer>(container).apply(userId, e.getSensor())))
+				.filter(e -> e.getSensor().equals(sensorId))
 				.collect(Collectors.toList());
 	}
 

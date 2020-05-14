@@ -7,19 +7,19 @@ import com.magc.sensecane.framework.model.database.annotation.Table;
 import com.magc.sensecane.framework.model.database.annotation.Unique;
 import com.magc.sensecane.server.model.User;
 
-@Table(name = "doctor")
+@Table("doctor")
 public class DoctorTable extends TableEntity<Integer> implements User {
 
-	@PrimaryKey @Column(name = "id") private final Integer id;
-	@Column(name = "username") @Unique protected final String username;
-	@Column(name = "password") protected final String password;
-	@Column(name = "dni") @Unique protected final String dni;
-	@Column(name = "token") @Unique protected final String token;
-	@Column(name = "first_name") protected final String firstName;
-	@Column(name = "last_name") protected final String lastName;
-	@Column(name = "ip") protected final String ip;
-	@Column(name = "user_agent") protected final String userAgent;
-	@Column(name = "last_login") protected final Long lastLogin;
+	@PrimaryKey @Column("id") private final Integer id;
+	@Column("username") @Unique protected final String username;
+	@Column("password") protected final String password;
+	@Column("dni") @Unique protected final String dni;
+	@Column("token") @Unique protected final String token;
+	@Column("first_name") protected final String firstName;
+	@Column("last_name") protected final String lastName;
+	@Column("ip") protected final String ip;
+	@Column("user_agent") protected final String userAgent;
+	@Column("last_login") protected final Long lastLogin;
 
 	public DoctorTable() {
 		this(null, null, null, null, null, null, null, null, null, null);
