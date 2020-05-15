@@ -13,32 +13,22 @@ import com.magc.sensecane.server.model.filter.CitationFilter;
 import spark.Request;
 import spark.Response;
 
-public class GetUserCitationsRoute extends AbstractGetRoute<Void> {
+public class GetUserCitationsRoute extends AbstractGetRoute<CitationTable> {
 
 	public GetUserCitationsRoute(Container container) {
 		super(container);
 	}
 
 	@Override
-	public String handle(Request request, Response response) throws Exception {
+	public PreSerializedJson<CitationTable> serve(Request request, Response response) throws Exception {
 		Integer id;
-		List<PreSerializedJson<CitationTable>> results = null;
+		List<CitationTable> results = null;
 		
-		try {
-			if (super.isValidRequest(request, response) && ( id = Integer.parseInt(request.params(":user"))) != null) {
-				
-				results = DaoFacade.getUserCitations(id, CitationFilter.ANY).stream()
-						.map(e -> new PreSerializedJson<CitationTable>(e))
-						.collect(Collectors.toList());
-				response.status(200);
-				response.type("application/json");
-				
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
+		if (( id = Integer.parseInt(request.params(":user"))) != null) {
+			results = DaoFacade.getUserCitations(id, CitationFilter.ANY);
 		}
 		
-		return super.toJson(results);
+		return new PreSerializedJson<CitationTable>(results, "*");
 	}
 
 }

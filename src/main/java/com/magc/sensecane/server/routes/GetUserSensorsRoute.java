@@ -13,32 +13,22 @@ import com.magc.sensecane.server.model.database.PatientSensorTable;
 import spark.Request;
 import spark.Response;
 
-public class GetUserSensorsRoute extends AbstractGetRoute<Void> {
+public class GetUserSensorsRoute extends AbstractGetRoute<PatientSensorTable> {
 
 	public GetUserSensorsRoute(Container container) {
 		super(container);
 	}
 
 	@Override
-	public String handle(Request request, Response response) throws Exception {
-		Integer id = null;
+	public PreSerializedJson<PatientSensorTable> serve(Request request, Response response) throws Exception {
 		User user = null;
-		List<PreSerializedJson<PatientSensorTable>> sensors = null;
+		List<PatientSensorTable> sensors = null;
 		
-		try {
-			if (super.isValidRequest(request, response) && ( user = DaoFacade.find( (id = Integer.parseInt(request.params(":user"))) ) ) != null) {
-				
-				sensors = DaoFacade.getUserSensors(user).stream()
-						.map(e->new PreSerializedJson<PatientSensorTable>(e))
-						.collect(Collectors.toList());
-				
-				response.status(200);
-				response.type("application/json");
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
+		if ( (user = DaoFacade.find(Integer.parseInt(request.params(":user")))) != null ) {
+			sensors = DaoFacade.getUserSensors(user).stream()
+					.collect(Collectors.toList());
 		}
 		
-		return super.toJson(sensors);
+		return new PreSerializedJson<PatientSensorTable>(sensors, "*");
 	}
 }

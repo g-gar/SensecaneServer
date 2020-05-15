@@ -11,33 +11,28 @@ import com.magc.sensecane.server.model.filter.MessageFilter;
 import spark.Request;
 import spark.Response;
 
-public class GetUserTicketRoute extends AbstractGetRoute<Object> {
+public class GetUserTicketRoute extends AbstractGetRoute<MessageTable> {
 
 	public GetUserTicketRoute(Container container) {
 		super(container);
 	}
 
 	@Override
-	public String handle(Request request, Response response) throws Exception {
+	public PreSerializedJson<MessageTable> serve(Request request, Response response) throws Exception {
 		Integer userId, messageId;
 		User user = null;
-		PreSerializedJson<MessageTable> result = null;
+		MessageTable message = null;
 		
-		if (super.isValidRequest(request, response)) {
-			
-			userId = Integer.valueOf(request.params(":user"));
-			messageId = Integer.valueOf(request.params(":message"));
-			
-			if ( (user = DaoFacade.find(userId)) != null ) {
-				result = new PreSerializedJson<MessageTable>(DaoFacade.getUserMessages(user.getId(), MessageFilter.ANY).stream()
-					.filter(m -> m.getId().equals(messageId))
-					.findFirst().orElse(null)
-				);
-			}
-			
+		userId = Integer.valueOf(request.params(":user"));
+		messageId = Integer.valueOf(request.params(":message"));
+		
+		if ( (user = DaoFacade.find(userId)) != null ) {
+			message = DaoFacade.getUserMessages(user.getId(), MessageFilter.ANY).stream()
+				.filter(m -> m.getId().equals(messageId))
+				.findFirst().orElse(null);
 		}
 		
-		return super.toJson(result);
+		return new PreSerializedJson<MessageTable>(message, "*");
 	}
 
 }

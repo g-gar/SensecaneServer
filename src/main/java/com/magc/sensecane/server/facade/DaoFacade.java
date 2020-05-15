@@ -5,7 +5,7 @@ import java.util.Map;
 
 import com.magc.sensecane.framework.container.Container;
 import com.magc.sensecane.server.App;
-import com.magc.sensecane.server.facade.dao.CreateOrUpdateUserUtil;
+import com.magc.sensecane.server.facade.dao.RegisterOrUpdateUserUtil;
 import com.magc.sensecane.server.facade.dao.GetUserCitationUtil;
 import com.magc.sensecane.server.facade.dao.GetUserCitationsUtil;
 import com.magc.sensecane.server.facade.dao.GetUserInfoUtil;
@@ -73,7 +73,7 @@ public class DaoFacade {
 	}
 	
 	public static User createOrUpdateUser(Map<String, String> params) {
-		return new CreateOrUpdateUserUtil(container).apply(params);
+		return new RegisterOrUpdateUserUtil(container).apply(params);
 	}
 	
 	public static <T> MessageTable registerMessage(T from, T to, Map<String,String> params) {

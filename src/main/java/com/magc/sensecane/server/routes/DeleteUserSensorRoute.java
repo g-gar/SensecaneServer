@@ -9,28 +9,18 @@ import com.magc.sensecane.server.model.database.PatientSensorTable;
 import spark.Request;
 import spark.Response;
 
-public class DeleteUserSensorRoute extends AbstractDeleteRoute<Void> {
+public class DeleteUserSensorRoute extends AbstractDeleteRoute<PatientSensorTable> {
 
 	public DeleteUserSensorRoute(Container container) {
 		super(container);
 	}
 
 	@Override
-	public String handle(Request request, Response response) throws Exception {
-		PreSerializedJson<PatientSensorTable> result = null;
-		
-		try {
-			if (super.isValidRequest(request, response)) {
-				Integer userId = Integer.valueOf(request.params(":user"));
-				Integer sensorId = Integer.valueOf(request.params(":user"));
-				result = new PreSerializedJson<PatientSensorTable>(new DeleteUserSensorUtil<Integer, Integer>(container).apply(userId, sensorId));
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-			throw new RuntimeException( e );
-		}
-		
-		return super.toJson(result);
+	public PreSerializedJson<PatientSensorTable> serve(Request request, Response response) throws Exception {
+		return new PreSerializedJson<PatientSensorTable>(new DeleteUserSensorUtil<Integer, Integer>(container).apply(
+			Integer.valueOf(request.params(":user")), 
+			Integer.valueOf(request.params(":user"))
+		), "*");
 	}
 
 }

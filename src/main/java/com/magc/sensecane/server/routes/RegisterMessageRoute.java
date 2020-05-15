@@ -11,31 +11,19 @@ import com.magc.sensecane.server.model.database.MessageTable;
 import spark.Request;
 import spark.Response;
 
-public class RegisterMessageRoute extends AbstractPostRoute<String> {
+public class RegisterMessageRoute extends AbstractPostRoute<MessageTable> {
 
 	public RegisterMessageRoute(Container container) {
 		super(container);
 	}
 
 	@Override
-	public String handle(Request request, Response response) throws Exception {
-		PreSerializedJson<MessageTable> result = null;
-		
-		try {
-			if (super.isValidRequest(request, response)) {
+	public PreSerializedJson<MessageTable> serve(Request request, Response response) throws Exception {
+		Map<String, String> params = super.getParams(request, "user_from", "user_to", "message");
+		Integer from = Integer.valueOf(params.get("user_from"));
+		Integer to = Integer.valueOf(params.get("user_to"));
 				
-				Map<String, String> params = super.getParams(request, "user_from", "user_to", "message");
-				Integer from = Integer.valueOf(params.get("user_from"));
-				Integer to = Integer.valueOf(params.get("user_to"));
-				
-				result = new PreSerializedJson<MessageTable>(DaoFacade.registerMessage(from, to, params));
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-			throw new RuntimeException(e);
-		}
-				
-		return super.toJson(result);
+		return new PreSerializedJson<MessageTable>(DaoFacade.registerMessage(from, to, params), "*");
 	}
 
 }

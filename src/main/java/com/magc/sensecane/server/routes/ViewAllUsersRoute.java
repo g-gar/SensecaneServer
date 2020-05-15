@@ -12,31 +12,19 @@ import com.magc.sensecane.server.model.User;
 import spark.Request;
 import spark.Response;
 
-public class ViewAllUsersRoute extends AbstractGetRoute<String> {
+public class ViewAllUsersRoute extends AbstractGetRoute<User> {
 	
 	public ViewAllUsersRoute(Container container) {
 		super(container);
 	}
 
 	@Override
-	public String handle(Request request, Response response) throws Exception {
-		List<PreSerializedJson<User>> result = null;
-		
-		if (super.isValidRequest(request, response)) {
-			
-//			System.out.println(request.ip());
-//			System.out.println(request.userAgent());
-
-			result = DaoFacade.getAllUsers().stream()
+	public PreSerializedJson<User> serve(Request request, Response response) throws Exception {
+		List<User> users = DaoFacade.getAllUsers().stream()
 				.map(e->DaoFacade.getUserInfo(e.getId()))
-				.map(e -> new PreSerializedJson<User>(e, "password", "token", "ip", "userAgent"))
 				.collect(Collectors.toList());
-			
-			response.status(200);
-			response.type("application/json");
-		}
-
-		return super.toJson(result);
+		
+		return new PreSerializedJson<User>(users, "id", "username", "dni", "firstName", "lastName");
 	}
 
 }

@@ -13,26 +13,21 @@ import com.magc.sensecane.server.model.filter.MessageFilter;
 import spark.Request;
 import spark.Response;
 
-public class GetUserTicketsRoute<T> extends AbstractGetRoute<T> {
+public class GetUserTicketsRoute extends AbstractGetRoute<MessageTable> {
 
 	public GetUserTicketsRoute(Container container) {
 		super(container);
 	}
 
 	@Override
-	public String handle(Request request, Response response) throws Exception {
-		List<PreSerializedJson<MessageTable>> messages = null;
-		try {
-			if (super.isValidRequest(request, response)) {
-				Integer id = Integer.valueOf(request.params(":user"));
-				messages = DaoFacade.getUserMessages(id, MessageFilter.ANY).stream()
-						.map(e -> new PreSerializedJson<MessageTable>(e))
-						.collect(Collectors.toList());
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return super.toJson(messages);
+	public PreSerializedJson<MessageTable> serve(Request request, Response response) throws Exception {
+		List<MessageTable> messages = null;
+		
+		Integer id = Integer.valueOf(request.params(":user"));
+		messages = DaoFacade.getUserMessages(id, MessageFilter.ANY).stream()
+				.collect(Collectors.toList());
+		
+		return new PreSerializedJson<MessageTable>(messages, "*");
 	}
 
 }

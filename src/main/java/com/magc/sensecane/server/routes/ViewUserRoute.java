@@ -10,25 +10,17 @@ import spark.Request;
 import spark.Response;
 
 // /users/:user/
-public class ViewUserRoute extends AbstractGetRoute<String> {
+public class ViewUserRoute extends AbstractGetRoute<User> {
 	
 	public ViewUserRoute(Container container) {
 		super(container);
 	}
 
 	@Override
-	public String handle(Request request, Response response) throws Exception {
-		PreSerializedJson<User> result = null;
-
-		if (super.isValidRequest(request, response)) {
-			Integer id = Integer.valueOf(request.params(":user"));
-			result = new PreSerializedJson<User>(DaoFacade.find(id), "password", "token", "ip", "userAgent");
-			
-			response.status(200);
-			response.type("application/json");
-		}
+	public PreSerializedJson<User> serve(Request request, Response response) throws Exception {
+		User user = DaoFacade.find(Integer.valueOf(request.params(":user")));
 		
-		return super.toJson(result);
+		return new PreSerializedJson<User>(user, "id", "username", "dni", "firstName", "lastName");
 	}
 	
 }

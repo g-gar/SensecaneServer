@@ -15,9 +15,9 @@ import com.magc.sensecane.server.model.database.CarerTable;
 import com.magc.sensecane.server.model.database.DoctorTable;
 import com.magc.sensecane.server.model.database.PatientTable;
 
-public class CreateOrUpdateUserUtil extends AbstractDaoUtil implements MonoParameterizedFunction<Map<String, String>, User> {
+public class RegisterOrUpdateUserUtil extends AbstractDaoUtil implements MonoParameterizedFunction<Map<String, String>, User> {
 
-	public CreateOrUpdateUserUtil(Container container) {
+	public RegisterOrUpdateUserUtil(Container container) {
 		super(container);
 	}
 
