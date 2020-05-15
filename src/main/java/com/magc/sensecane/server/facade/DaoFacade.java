@@ -80,7 +80,8 @@ public class DaoFacade {
 		return new RegisterMessageUtil<T>(container).apply(from, to, params);
 	}
 	
-	public static <T> SensorDataTable registerSensorData(T userId, T sensorId, Map<String,String> params) {
-		return new RegisterSensorDataUtil<T>(container).apply(userId, sensorId, params);
+	public static <T,S> SensorDataTable registerSensorData(T user, S sensor, Map<String,String> params) {
+		return new RegisterSensorDataUtil<T,S>(container).apply(user, sensor, params);
 	}
+
 }

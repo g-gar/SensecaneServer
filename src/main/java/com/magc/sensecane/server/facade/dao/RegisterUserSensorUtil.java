@@ -27,7 +27,14 @@ public class RegisterUserSensorUtil<T> extends AbstractDaoUtil implements BiPara
 	}
 	
 	public PatientSensorTable execute(Integer param1, Map<String, String> param2) {
-		return null;
+		PatientSensorTable sensor = null;
+		User user = null;
+		
+		if ((user = new GetUserUtil(container).apply(param1)) != null) {
+			sensor = get(PatientSensorTable.class).insertOrUpdate(new PatientSensorTable(null, user.getId(), param2.get("name")));
+		}
+		
+		return sensor;
 	}
 
 }

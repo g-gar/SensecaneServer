@@ -10,14 +10,14 @@ import com.magc.sensecane.server.model.User;
 import com.magc.sensecane.server.model.database.PatientSensorTable;
 import com.magc.sensecane.server.model.database.SensorDataTable;
 
-public class RegisterSensorDataUtil<T> extends AbstractDaoUtil implements TriParamerizedFunction<T, T, Map<String, String>, SensorDataTable> {
+public class RegisterSensorDataUtil<T, S> extends AbstractDaoUtil implements TriParamerizedFunction<T, S, Map<String, String>, SensorDataTable> {
 
 	public RegisterSensorDataUtil(Container container) {
 		super(container);
 	}
 
 	@Override
-	public SensorDataTable apply(T param1, T param2, Map<String, String> param3) {
+	public SensorDataTable apply(T param1, S param2, Map<String, String> param3) {
 		return this.<SensorDataTable>tryOr(
 			() -> execute((Integer) param1, (Integer) param2, param3), 
 			() -> execute((User) param1, (PatientSensorTable) param2, param3)
@@ -31,6 +31,7 @@ public class RegisterSensorDataUtil<T> extends AbstractDaoUtil implements TriPar
 	private SensorDataTable execute(Integer userId, Integer sensorId, Map<String, String> params) {
 		SensorDataTable result = null;
 		PatientSensorTable sensor = null;
+		
 		if ( (sensor = new GetUserSensorUtil<Integer>(container).apply(userId, sensorId)) != null) {
 			result = get(SensorDataTable.class).insertOrUpdate(new SensorDataTable(
 				null, 
@@ -42,4 +43,5 @@ public class RegisterSensorDataUtil<T> extends AbstractDaoUtil implements TriPar
 
 		return result;
 	}
+	
 }
