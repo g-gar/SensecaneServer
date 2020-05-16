@@ -1,7 +1,5 @@
 package com.magc.sensecane.server.facade.dao;
 
-import java.util.List;
-
 import com.magc.sensecane.framework.container.Container;
 import com.magc.sensecane.framework.generics.TriParamerizedFunction;
 import com.magc.sensecane.server.facade.AbstractDaoUtil;

@@ -70,9 +70,7 @@ public class RegisterOrUpdateUserUtil extends AbstractDaoUtil implements MonoPar
 	}
 	
 	private String get(Map<String,String> params, String key) {
-		return params.containsKey(key)
-			? params.get(key)
-			: "";
+		return get(params, key, "");
 	}
 	
 	private <T> String get(Map<String,String> params, String key, T defaultValue) {
