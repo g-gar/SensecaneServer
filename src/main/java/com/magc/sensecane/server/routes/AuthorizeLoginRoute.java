@@ -1,9 +1,15 @@
 package com.magc.sensecane.server.routes;
 
+import java.util.Map;
+
 import com.magc.sensecane.framework.container.Container;
+import com.magc.sensecane.framework.dao.Dao;
+import com.magc.sensecane.framework.dao.DaoContainer;
 import com.magc.sensecane.framework.model.json.PreSerializedJson;
 import com.magc.sensecane.framework.spark.AbstractPostRoute;
+import com.magc.sensecane.server.facade.DaoFacade;
 import com.magc.sensecane.server.model.User;
+import com.magc.sensecane.server.model.database.UserTable;
 
 import spark.Request;
 import spark.Response;
@@ -16,40 +22,18 @@ public class AuthorizeLoginRoute extends AbstractPostRoute<User> {
 
 	@Override
 	public PreSerializedJson<User> serve(Request request, Response response) throws Exception {
-		return null;
+		Map<String, String> params = super.getParams(request, "username", "password");
+		String username = params.get("username");
+		String password = params.get("password");
+		
+		Dao<UserTable> udao = container.get(DaoContainer.class).get(UserTable.class);
+		User user = udao.findAll()
+				.stream()
+				.map(e->DaoFacade.getUserInfo(e.getId()))
+				.filter(e -> e.getUsername().equals(username) && e.getPassword().equals(password))
+				.limit(1)
+				.findFirst().orElse(null);
+		return new PreSerializedJson<User>(user, "id", "username", "dni", "firstName", "lastName");
 	}
-
-//	@Override
-//	public String handle(Request request, Response response) throws Exception {
-//		User user = null;
-//		
-//		try {
-//			super.handle(request, response);
-//			Map<String, String> p = super.getParams(request, "username", "password");
-//			
-//			String username = p.get("username");
-//			String password = p.get("password");
-//			
-//			DaoContainer daocontainer = container.get(DaoContainer.class);
-//			ConversorContainer conversor = container.get(ConversorContainer.class);
-//			Dao<UserTable> udao = daocontainer.get(UserTable.class);
-//			
-//			user = udao.findAll().stream()
-//					.filter(e -> e.getUsername().equals(username) && e.getPassword().equals(password))
-//					.map(e -> conversor.<User>convert(e))
-//					.findAny()
-//					.orElse(null);
-//			
-//			if (user == null) {
-//				throw new Exception("Username or password is not valid");
-//			}
-//			
-//		} catch (Exception e) {
-//			e.printStackTrace();
-//			throw new RuntimeException(e);
-//		}
-//		
-//		return new GsonBuilder().serializeNulls().setPrettyPrinting().create().toJson(user);
-//	}
 
 }
