@@ -4,14 +4,14 @@ import java.util.List;
 
 import com.magc.sensecane.framework.container.Container;
 import com.magc.sensecane.framework.model.json.PreSerializedJson;
-import com.magc.sensecane.framework.spark.AbstractPostRoute;
+import com.magc.sensecane.framework.spark.AbstractGetRoute;
 import com.magc.sensecane.server.facade.DaoFacade;
 import com.magc.sensecane.server.model.database.SensorDataTable;
 
 import spark.Request;
 import spark.Response;
 
-public class GetUserSensorMeasurements extends AbstractPostRoute<SensorDataTable> {
+public class GetUserSensorMeasurements extends AbstractGetRoute<SensorDataTable> {
 
 	public GetUserSensorMeasurements(Container container) {
 		super(container);
