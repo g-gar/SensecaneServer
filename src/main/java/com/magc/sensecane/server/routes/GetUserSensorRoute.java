@@ -24,7 +24,7 @@ public class GetUserSensorRoute extends AbstractGetRoute<PatientSensorTable> {
 			sensor = DaoFacade.getUserSensor(userId, sensorId);
 		}
 		
-		return new PreSerializedJson<PatientSensorTable>(sensor, "*");
+		return new PreSerializedJson<PatientSensorTable>(sensor, "id", "patient", "name");
 	}
 
 }
