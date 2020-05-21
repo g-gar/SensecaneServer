@@ -1,6 +1,7 @@
 package com.magc.sensecane.server.facade;
 
 import com.magc.sensecane.server.model.User;
+import com.magc.sensecane.server.model.database.MessageTable;
 
 public class ResponseModelFacade {
 
@@ -15,4 +16,13 @@ public class ResponseModelFacade {
 		};
 	}
 	
+	public static Object createTicket(MessageTable ticket) {
+		return new Object() {
+			Integer id = ticket.getId();
+			Integer from = ticket.getUserFrom();
+			Integer to = ticket.getUserTo();
+			Long timestamp = ticket.getTimestamp();
+			String message = ticket.getMessage();
+		};
+	}
 }

@@ -19,6 +19,9 @@ public class RegisterSensorDataRoute extends AbstractPostRoute<SensorDataTable> 
 
 	@Override
 	public PreSerializedJson<SensorDataTable> serve(Request request, Response response) throws Exception {
+		
+		System.out.println(request.userAgent());
+		
 		Map<String, String> params = super.getParams(request, "user_id", "sensor_id", "value");
 		Integer userId = Integer.valueOf(params.get("user_id"));
 		Integer sensorId = Integer.valueOf(params.get("sensor_id"));
