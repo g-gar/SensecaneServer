@@ -18,6 +18,7 @@ import com.magc.sensecane.server.facade.dao.GetUserUtil;
 import com.magc.sensecane.server.facade.dao.GetUsersUtil;
 import com.magc.sensecane.server.facade.dao.RegisterMessageUtil;
 import com.magc.sensecane.server.facade.dao.RegisterSensorDataUtil;
+import com.magc.sensecane.server.facade.dao.RegisterUserSensorUtil;
 import com.magc.sensecane.server.model.Type;
 import com.magc.sensecane.server.model.User;
 import com.magc.sensecane.server.model.database.CitationTable;
@@ -31,6 +32,8 @@ import com.magc.sensecane.server.model.filter.MessageFilter;
 public class DaoFacade {
 
 	private static final Container container = App.getInstance();
+	
+	// DATA SELECTIONS
 	
 	public static List<UserTable> getAllUsers() {
 		return new GetUsersUtil(container).apply();
@@ -72,6 +75,8 @@ public class DaoFacade {
 		return new GetUserCitationUtil<T, U>(container).apply(param1, param2, filter);
 	}
 	
+	//DATA ADDITIONS
+	
 	public static User createOrUpdateUser(Map<String, String> params) {
 		return new RegisterOrUpdateUserUtil(container).apply(params);
 	}
@@ -84,4 +89,7 @@ public class DaoFacade {
 		return new RegisterSensorDataUtil<T,S>(container).apply(user, sensor, params);
 	}
 
+	public static <T> PatientSensorTable registerSensor(T user, Map<String, String> params) {
+		return new RegisterUserSensorUtil<T>(container).apply(user, params);
+	}
 }
