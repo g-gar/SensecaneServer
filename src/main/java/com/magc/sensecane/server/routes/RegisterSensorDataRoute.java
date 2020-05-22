@@ -16,6 +16,15 @@ public class RegisterSensorDataRoute extends AbstractPostRoute<SensorDataTable> 
 	public RegisterSensorDataRoute(Container container) {
 		super(container);
 	}
+	
+	@Override
+	public String handle(Request request, Response response) {
+		String result = super.handle(request, response);
+		if (request.userAgent().equals("ATMega2560")) {
+			result = "#OK#";
+		}
+		return result;
+	}
 
 	@Override
 	public PreSerializedJson<SensorDataTable> serve(Request request, Response response) throws Exception {
