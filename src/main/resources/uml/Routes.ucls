@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.4" icons="true" automaticImage="JPEG" always-add-relationships="false" 
+  generalizations="true" realizations="true" associations="true" dependencies="false" nesting-relationships="true" 
+  router="FAN">  
+  <class id="1" language="java" name="com.magc.sensecane.framework.spark.AbstractPostRoute" project="framework" 
+    file="/framework/src/main/java/com/magc/sensecane/framework/spark/AbstractPostRoute.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="117" width="256" x="1130" y="248"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="com.magc.sensecane.framework.spark.AbstractDeleteRoute" project="framework" 
+    file="/framework/src/main/java/com/magc/sensecane/framework/spark/AbstractDeleteRoute.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="99" width="239" x="2567" y="248"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="com.magc.sensecane.framework.spark.AbstractRoute" project="framework" 
+    file="/framework/src/main/java/com/magc/sensecane/framework/spark/AbstractRoute.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="171" width="268" x="3189" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="com.magc.sensecane.framework.spark.AbstractPutRoute" project="framework" 
+    file="/framework/src/main/java/com/magc/sensecane/framework/spark/AbstractPutRoute.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="117" width="256" x="4782" y="248"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="com.magc.sensecane.framework.spark.AbstractGetRoute" project="framework" 
+    file="/framework/src/main/java/com/magc/sensecane/framework/spark/AbstractGetRoute.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="99" width="239" x="4279" y="248"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="com.magc.sensecane.server.routes.RegisterMessageRoute" project="server" 
+    file="/server/src/main/java/com/magc/sensecane/server/routes/RegisterMessageRoute.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="99" width="324" x="53" y="405"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="com.magc.sensecane.server.routes.GetUserSensorMeasurements" project="server" 
+    file="/server/src/main/java/com/magc/sensecane/server/routes/GetUserSensorMeasurements.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="99" width="337" x="5347" y="405"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="com.magc.sensecane.server.routes.ViewUserRoute" project="server" 
+    file="/server/src/main/java/com/magc/sensecane/server/routes/ViewUserRoute.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="99" width="286" x="4279" y="405"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="com.magc.sensecane.server.routes.GetUserTypeRoute" project="server" 
+    file="/server/src/main/java/com/magc/sensecane/server/routes/GetUserTypeRoute.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="99" width="286" x="6050" y="405"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="com.magc.sensecane.server.routes.ViewAllUsersRoute" project="server" 
+    file="/server/src/main/java/com/magc/sensecane/server/routes/ViewAllUsersRoute.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="99" width="286" x="3953" y="405"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="com.magc.sensecane.server.routes.RegisterSensorDataRoute" project="server" 
+    file="/server/src/main/java/com/magc/sensecane/server/routes/RegisterSensorDataRoute.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="117" width="337" x="1803" y="405"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="com.magc.sensecane.server.routes.AuthorizeLoginRoute" project="server" 
+    file="/server/src/main/java/com/magc/sensecane/server/routes/AuthorizeLoginRoute.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="99" width="286" x="804" y="405"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="com.magc.sensecane.server.routes.CreateSensorRoute" project="server" 
+    file="/server/src/main/java/com/magc/sensecane/server/routes/CreateSensorRoute.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="99" width="347" x="417" y="405"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="com.magc.sensecane.server.routes.GetUserSensorsRoute" project="server" 
+    file="/server/src/main/java/com/magc/sensecane/server/routes/GetUserSensorsRoute.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="99" width="347" x="3566" y="405"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="15" language="java" name="com.magc.sensecane.server.routes.GetUserCitationsRoute" project="server" 
+    file="/server/src/main/java/com/magc/sensecane/server/routes/GetUserCitationsRoute.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="99" width="315" x="4605" y="405"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="16" language="java" name="com.magc.sensecane.server.routes.GetUserSensorRoute" project="server" 
+    file="/server/src/main/java/com/magc/sensecane/server/routes/GetUserSensorRoute.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="99" width="347" x="4960" y="405"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="17" language="java" name="com.magc.sensecane.server.routes.CreateCitationRoute" project="server" 
+    file="/server/src/main/java/com/magc/sensecane/server/routes/CreateCitationRoute.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="99" width="315" x="1448" y="405"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="18" language="java" name="com.magc.sensecane.server.routes.DeleteUserRoute" project="server" 
+    file="/server/src/main/java/com/magc/sensecane/server/routes/DeleteUserRoute.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="99" width="278" x="2567" y="405"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="19" language="java" name="com.magc.sensecane.server.routes.UpdateUserRoute" project="server" 
+    file="/server/src/main/java/com/magc/sensecane/server/routes/UpdateUserRoute.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="99" width="278" x="6376" y="405"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="20" language="java" name="com.magc.sensecane.server.routes.DeleteUserSensorRoute" project="server" 
+    file="/server/src/main/java/com/magc/sensecane/server/routes/DeleteUserSensorRoute.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="99" width="347" x="2180" y="405"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="21" language="java" name="com.magc.sensecane.server.routes.CreateUserRoute" project="server" 
+    file="/server/src/main/java/com/magc/sensecane/server/routes/CreateUserRoute.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="99" width="278" x="1130" y="405"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="22" language="java" name="com.magc.sensecane.server.routes.GetUserCitationRoute" project="server" 
+    file="/server/src/main/java/com/magc/sensecane/server/routes/GetUserCitationRoute.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="99" width="315" x="3211" y="405"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="23" language="java" name="com.magc.sensecane.server.routes.GetUserTicketsRoute" project="server" 
+    file="/server/src/main/java/com/magc/sensecane/server/routes/GetUserTicketsRoute.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="99" width="286" x="5724" y="405"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="24" language="java" name="com.magc.sensecane.server.routes.GetUserTicketRoute" project="server" 
+    file="/server/src/main/java/com/magc/sensecane/server/routes/GetUserTicketRoute.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="99" width="286" x="2885" y="405"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <generalization id="25">    
+    <end type="SOURCE" refId="18"/>    
+    <end type="TARGET" refId="2"/>  
+  </generalization>  
+  <generalization id="26">    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="3"/>  
+  </generalization>  
+  <generalization id="27">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <generalization id="28">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="3"/>  
+  </generalization>  
+  <generalization id="29">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="5"/>  
+  </generalization>  
+  <generalization id="30">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="5"/>  
+  </generalization>  
+  <generalization id="31">    
+    <end type="SOURCE" refId="22"/>    
+    <end type="TARGET" refId="5"/>  
+  </generalization>  
+  <generalization id="32">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="5"/>  
+  </generalization>  
+  <generalization id="33">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <generalization id="34">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="3"/>  
+  </generalization>  
+  <generalization id="35">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="3"/>  
+  </generalization>  
+  <generalization id="36">    
+    <end type="SOURCE" refId="20"/>    
+    <end type="TARGET" refId="2"/>  
+  </generalization>  
+  <generalization id="37">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <generalization id="38">    
+    <end type="SOURCE" refId="19"/>    
+    <end type="TARGET" refId="4"/>  
+  </generalization>  
+  <generalization id="39">    
+    <end type="SOURCE" refId="21"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <generalization id="40">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="5"/>  
+  </generalization>  
+  <generalization id="41">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="5"/>  
+  </generalization>  
+  <generalization id="42">    
+    <end type="SOURCE" refId="23"/>    
+    <end type="TARGET" refId="5"/>  
+  </generalization>  
+  <generalization id="43">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="5"/>  
+  </generalization>  
+  <generalization id="44">    
+    <end type="SOURCE" refId="17"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <generalization id="45">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="1"/>  
+  </generalization>  
+  <generalization id="46">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="5"/>  
+  </generalization>  
+  <generalization id="47">    
+    <end type="SOURCE" refId="24"/>    
+    <end type="TARGET" refId="5"/>  
+  </generalization>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>

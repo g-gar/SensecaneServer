@@ -16,25 +16,25 @@ public class RegisterSensorDataRoute extends AbstractPostRoute<SensorDataTable> 
 	public RegisterSensorDataRoute(Container container) {
 		super(container);
 	}
-	
+
 	@Override
 	public String handle(Request request, Response response) {
 		String result = super.handle(request, response);
-		if (request.userAgent().equals("ATMega2560")) {
+		String[] ua = request.userAgent().split("/");
+		if (ua[0].equals("ATMega2560")) {
 			result = "#OK#";
+		} else if (ua[0].equals("PostmanRuntime")) {
+			result = "#OK_POSTMAN#";
 		}
 		return result;
 	}
 
 	@Override
 	public PreSerializedJson<SensorDataTable> serve(Request request, Response response) throws Exception {
-		
-		System.out.println(request.userAgent());
-		
 		Map<String, String> params = super.getParams(request, "user_id", "sensor_id", "value");
 		Integer userId = Integer.valueOf(params.get("user_id"));
 		Integer sensorId = Integer.valueOf(params.get("sensor_id"));
-				
+
 		return new PreSerializedJson<SensorDataTable>(DaoFacade.registerSensorData(userId, sensorId, params), "*");
 	}
 

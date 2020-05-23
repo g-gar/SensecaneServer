@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.4" icons="true" automaticImage="JPEG" always-add-relationships="false" 
+  generalizations="true" realizations="true" associations="true" dependencies="false" nesting-relationships="true" 
+  router="FAN">  
+  <class id="1" language="java" name="com.magc.sensecane.server.facade.DaoFacade" project="server" 
+    file="/server/src/main/java/com/magc/sensecane/server/facade/DaoFacade.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="880" y="181"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="com.magc.sensecane.server.facade.dao.GetUserCitationUtil" project="server" 
+    file="/server/src/main/java/com/magc/sensecane/server/facade/dao/GetUserCitationUtil.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="135" width="282" x="3312" y="428"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="com.magc.sensecane.server.facade.dao.RegisterOrUpdateUserUtil" project="server" 
+    file="/server/src/main/java/com/magc/sensecane/server/facade/dao/RegisterOrUpdateUserUtil.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="171" width="446" x="1404" y="428"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="com.magc.sensecane.server.facade.dao.GetUserSensorsUtil" project="server" 
+    file="/server/src/main/java/com/magc/sensecane/server/facade/dao/GetUserSensorsUtil.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="153" width="245" x="385" y="428"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="com.magc.sensecane.server.facade.dao.GetUserTypeUtil" project="server" 
+    file="/server/src/main/java/com/magc/sensecane/server/facade/dao/GetUserTypeUtil.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="135" width="182" x="2446" y="428"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="com.magc.sensecane.server.facade.dao.GetUserCitationsUtil" project="server" 
+    file="/server/src/main/java/com/magc/sensecane/server/facade/dao/GetUserCitationsUtil.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="135" width="258" x="2668" y="428"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="com.magc.sensecane.server.facade.dao.GetUserSensorDataUtil" project="server" 
+    file="/server/src/main/java/com/magc/sensecane/server/facade/dao/GetUserSensorDataUtil.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="135" width="304" x="41" y="428"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="com.magc.sensecane.server.facade.dao.GetUserSensorUtil" project="server" 
+    file="/server/src/main/java/com/magc/sensecane/server/facade/dao/GetUserSensorUtil.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="135" width="236" x="4078" y="428"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="com.magc.sensecane.server.facade.dao.GetUserInfoUtil" project="server" 
+    file="/server/src/main/java/com/magc/sensecane/server/facade/dao/GetUserInfoUtil.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="153" width="182" x="3856" y="428"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="com.magc.sensecane.server.facade.dao.GetUsersUtil" project="server" 
+    file="/server/src/main/java/com/magc/sensecane/server/facade/dao/GetUsersUtil.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="99" width="182" x="1890" y="428"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="com.magc.sensecane.server.facade.dao.GetUserUtil" project="server" 
+    file="/server/src/main/java/com/magc/sensecane/server/facade/dao/GetUserUtil.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="99" width="182" x="3634" y="428"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="com.magc.sensecane.server.facade.dao.GetUserMessagesUtil" project="server" 
+    file="/server/src/main/java/com/magc/sensecane/server/facade/dao/GetUserMessagesUtil.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="153" width="292" x="4354" y="428"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="com.magc.sensecane.server.facade.dao.RegisterUserSensorUtil" project="server" 
+    file="/server/src/main/java/com/magc/sensecane/server/facade/dao/RegisterUserSensorUtil.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="135" width="294" x="2112" y="428"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="com.magc.sensecane.server.facade.dao.DeleteUserSensorUtil" project="server" 
+    file="/server/src/main/java/com/magc/sensecane/server/facade/dao/DeleteUserSensorUtil.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="135" width="285" x="670" y="428"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="15" language="java" name="com.magc.sensecane.server.facade.dao.RegisterMessageUtil" project="server" 
+    file="/server/src/main/java/com/magc/sensecane/server/facade/dao/RegisterMessageUtil.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="135" width="306" x="2966" y="428"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="16" language="java" name="com.magc.sensecane.server.facade.dao.RegisterSensorDataUtil" project="server" 
+    file="/server/src/main/java/com/magc/sensecane/server/facade/dao/RegisterSensorDataUtil.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="135" width="369" x="995" y="428"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="17" language="java" name="com.magc.sensecane.server.facade.AbstractDaoUtil" project="server" 
+    file="/server/src/main/java/com/magc/sensecane/server/facade/AbstractDaoUtil.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="117" width="164" x="2446" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <generalization id="18">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="17"/>  
+  </generalization>  
+  <generalization id="19">    
+    <end type="SOURCE" refId="13"/>    
+    <end type="TARGET" refId="17"/>  
+  </generalization>  
+  <generalization id="20">    
+    <end type="SOURCE" refId="16"/>    
+    <end type="TARGET" refId="17"/>  
+  </generalization>  
+  <generalization id="21">    
+    <end type="SOURCE" refId="8"/>    
+    <end type="TARGET" refId="17"/>  
+  </generalization>  
+  <generalization id="22">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="17"/>  
+  </generalization>  
+  <generalization id="23">    
+    <end type="SOURCE" refId="14"/>    
+    <end type="TARGET" refId="17"/>  
+  </generalization>  
+  <generalization id="24">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="17"/>  
+  </generalization>  
+  <generalization id="25">    
+    <end type="SOURCE" refId="4"/>    
+    <end type="TARGET" refId="17"/>  
+  </generalization>  
+  <generalization id="26">    
+    <end type="SOURCE" refId="9"/>    
+    <end type="TARGET" refId="17"/>  
+  </generalization>  
+  <generalization id="27">    
+    <end type="SOURCE" refId="12"/>    
+    <end type="TARGET" refId="17"/>  
+  </generalization>  
+  <generalization id="28">    
+    <end type="SOURCE" refId="10"/>    
+    <end type="TARGET" refId="17"/>  
+  </generalization>  
+  <generalization id="29">    
+    <end type="SOURCE" refId="15"/>    
+    <end type="TARGET" refId="17"/>  
+  </generalization>  
+  <generalization id="30">    
+    <end type="SOURCE" refId="3"/>    
+    <end type="TARGET" refId="17"/>  
+  </generalization>  
+  <generalization id="31">    
+    <end type="SOURCE" refId="11"/>    
+    <end type="TARGET" refId="17"/>  
+  </generalization>  
+  <generalization id="32">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="17"/>  
+  </generalization>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>

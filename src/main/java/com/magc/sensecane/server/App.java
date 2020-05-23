@@ -134,7 +134,7 @@ public class App extends JavaFxApplication implements SparkApplication {
 			primaryStage.setScene(controller.get());
 			primaryStage.setTitle("MAGC - Sensecane Server");
 			App.getInstance().get(ServerWindowController.class).configure();
-			primaryStage.show();
+			//primaryStage.show();
 		});
 	}
 

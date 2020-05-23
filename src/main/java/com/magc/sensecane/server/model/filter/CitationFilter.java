@@ -12,12 +12,12 @@ import com.magc.sensecane.server.model.database.CitationTable;
 
 public enum CitationFilter implements Filter<Integer, CitationTable> {
 
-	DOCTOR((Integer id, CitationTable c) -> DaoFacade.getuserType(id).equals(Type.DOCTOR) && c != null && c.getDoctorId().equals(id)),
-	PATIENT((Integer id, CitationTable c) -> DaoFacade.getuserType(id).equals(Type.PATIENT) && c != null && c.getPatientId().equals(id)),
+	DOCTOR((Integer id, CitationTable c) -> DaoFacade.getUserType(id).equals(Type.DOCTOR) && c != null && c.getDoctorId().equals(id)),
+	PATIENT((Integer id, CitationTable c) -> DaoFacade.getUserType(id).equals(Type.PATIENT) && c != null && c.getPatientId().equals(id)),
 	ANY((Integer id, CitationTable c) -> {
 		User user = DaoFacade.find(id);
 		List<Type> types = Arrays.asList(new Type[] {Type.PATIENT, Type.DOCTOR}); 
-		return user != null && types.contains(DaoFacade.getuserType(user.getId())) && c != null && (DOCTOR.apply(id, c) || PATIENT.apply(id, c));
+		return user != null && types.contains(DaoFacade.getUserType(user.getId())) && c != null && (DOCTOR.apply(id, c) || PATIENT.apply(id, c));
 	});
 
 	private final BiFunction<Integer, CitationTable, Boolean> fn;

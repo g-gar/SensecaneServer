@@ -19,7 +19,7 @@ public class GetUserTypeRoute extends AbstractGetRoute<Object> {
 	public PreSerializedJson<Object> serve(Request request, Response response) throws Exception {
 		
 		Integer id = Integer.parseInt(request.params(":user"));
-		User user = new GetUserInfoUtil(container).apply(id);
+		User user = new GetUserInfoUtil<Integer>(container).apply(id);
 		
 		String c = user.getClass().getSimpleName().replaceAll("Table", "").toLowerCase();
 		

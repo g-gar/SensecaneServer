@@ -5,7 +5,7 @@ import java.util.Map;
 
 import com.magc.sensecane.framework.container.Container;
 import com.magc.sensecane.server.App;
-import com.magc.sensecane.server.facade.dao.RegisterOrUpdateUserUtil;
+import com.magc.sensecane.server.facade.dao.GetRelatedUsersUtil;
 import com.magc.sensecane.server.facade.dao.GetUserCitationUtil;
 import com.magc.sensecane.server.facade.dao.GetUserCitationsUtil;
 import com.magc.sensecane.server.facade.dao.GetUserInfoUtil;
@@ -17,6 +17,7 @@ import com.magc.sensecane.server.facade.dao.GetUserTypeUtil;
 import com.magc.sensecane.server.facade.dao.GetUserUtil;
 import com.magc.sensecane.server.facade.dao.GetUsersUtil;
 import com.magc.sensecane.server.facade.dao.RegisterMessageUtil;
+import com.magc.sensecane.server.facade.dao.RegisterOrUpdateUserUtil;
 import com.magc.sensecane.server.facade.dao.RegisterSensorDataUtil;
 import com.magc.sensecane.server.facade.dao.RegisterUserSensorUtil;
 import com.magc.sensecane.server.model.Type;
@@ -43,7 +44,7 @@ public class DaoFacade {
 		return new GetUserInfoUtil<T>(container).apply(param);
 	}
 	
-	public static <T> Type getuserType(T param) {
+	public static <T> Type getUserType(T param) {
 		return new GetUserTypeUtil<T>(container).apply(param);
 	}
 	
@@ -73,6 +74,10 @@ public class DaoFacade {
 	
 	public static <T,U> CitationTable getUserCitation(T param1, U param2, CitationFilter filter) {
 		return new GetUserCitationUtil<T, U>(container).apply(param1, param2, filter);
+	}
+	
+	public static <T> List<User> getRelatedUsers(T param1) {
+		return new GetRelatedUsersUtil<T>(container).apply(param1);
 	}
 	
 	//DATA ADDITIONS
