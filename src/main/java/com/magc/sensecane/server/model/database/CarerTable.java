@@ -24,6 +24,10 @@ public class CarerTable extends TableEntity<Integer> implements User {
 	public CarerTable() {
 		this(null, null, null, null, null, null, null, null, null, null);
 	}
+	
+	public CarerTable(Integer id) {
+		this(id, null, null, null, null, null, null, null, null, null);
+	}
 
 	public CarerTable(Integer id, String username, String password, String dni, String token, String firstName, String lastName, String ip, String userAgent, Long lastLogin) {
 		this.id = id;

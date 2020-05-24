@@ -25,6 +25,10 @@ public class PatientTable extends TableEntity<Integer> implements User {
 		this(null, null, null, null, null, null, null, null, null, null);
 	}
 	
+	public PatientTable(Integer id) {
+		this(id, null, null, null, null, null, null, null, null, null);
+	}
+	
 	public PatientTable(Integer id, String username, String password, String dni, String token, String firstName, String lastName, String ip, String userAgent, Long lastLogin) {
 		super();
 		this.id = id;
