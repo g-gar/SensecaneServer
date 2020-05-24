@@ -3,6 +3,7 @@ package com.magc.sensecane.server.facade.dao;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Map;
+import java.util.function.Function;
 import java.util.function.Supplier;
 
 import com.magc.sensecane.framework.container.Container;
@@ -40,25 +41,42 @@ public class RegisterOrUpdateUserUtil extends AbstractDaoUtil implements MonoPar
 			params.put("id", ""+usertable.getId());
 			typename = params.containsKey("type") ? params.get("type") : null;
 		}
-		
+		Class c = null;
 		switch (typename) {
 			case "carer":
-				result = create(CarerTable.class, user, params);
+				c = CarerTable.class;
 				break;
 			case "patient":
-				result = create(PatientTable.class, user, params);
+				c = PatientTable.class;
 				break;
 			case "doctor":
-				result = create(DoctorTable.class, user, params);
+				c = DoctorTable.class;
 				break;
 		}
+		result = c != null && user != null ? create(c, user, params) : create(c, params);
 		return result;
 	}
 	
-	private <T extends TableEntity & User> User create(Class<T> clazz, User user, Map<String,String> params) {
+	private <T extends TableEntity> User create(Class<T> clazz, Map<String,String> params) {
 		return create(
 			clazz,
-			get(params, "id", user.getId()),
+			Integer.parseInt(get(params, "id")),
+			get(params, "username"),
+			get(params, "password"),
+			get(params, "dni"),
+			get(params, "token"),
+			get(params, "firstName"),
+			get(params, "lastName"),
+			get(params, "ip"),
+			get(params, "userAgent"),
+			get(params, "lastLogin", e -> Long.parseLong(e), () -> null)
+		);
+	}
+	
+	private <T extends TableEntity> User create(Class<T> clazz, User user, Map<String,String> params) {
+		return create(
+			clazz,
+			Integer.parseInt(get(params, "id", ""+user.getId())),
 			get(params, "username", user.getUsername()),
 			get(params, "password", user.getPassword()),
 			get(params, "dni", user.getDni()),
@@ -67,11 +85,11 @@ public class RegisterOrUpdateUserUtil extends AbstractDaoUtil implements MonoPar
 			get(params, "lastName", user.getLastName()),
 			get(params, "ip", or(user.getIp(), null)),
 			get(params, "userAgent", or(user.getUserAgent(), null)),
-			get(params, "lastLogin", or(user.getLastLogin(), null))
+			get(params, "lastLogin", e -> Long.parseLong(e), () -> user.getLastLogin())
 		);
 	}
 
-	private <T extends TableEntity & User> User create(Class<T> clazz, Integer id, String username, String password, String dni, String token, String firstName, String lastName, String ip, String userAgent, Long lastLogin) {
+	private <T extends TableEntity> User create(Class<T> clazz, Integer id, String username, String password, String dni, String token, String firstName, String lastName, String ip, String userAgent, Long lastLogin) {
 		User result = null;
 		try {
 			Constructor<T> constructor = clazz.getConstructor(Integer.class, String.class, String.class, String.class, String.class, String.class, String.class, String.class, String.class, Long.class);
@@ -90,15 +108,15 @@ public class RegisterOrUpdateUserUtil extends AbstractDaoUtil implements MonoPar
 	}
 	
 	private <T> T get(Map<String,String> params, String key, T defaultValue) {
-		return params.containsKey(key)
+		return  params.containsKey(key)
 			? (T) params.get(key)
 			: defaultValue;
 	}
 	
-	private <T> T get(Map<String,String> params, String key, Supplier<T> fn) {
+	private <T> T get(Map<String,String> params, String key, Function<String, T> fn, Supplier<T> supplier) {
 		return params.containsKey(key)
-			? (T) params.get(key)
-			: fn.get();
+			? fn.apply(params.get(key))
+			: supplier.get();
 	}
 	
 	private <T> T or(T a, T b) {

@@ -17,7 +17,8 @@ public class UpdateUserRoute extends AbstractPutRoute<User> {
 
 	@Override
 	public PreSerializedJson<User> serve(Request request, Response response) throws Exception {
-		User user = DaoFacade.createOrUpdateUser(super.getParams(request, "id", "username", "password", "dni", "firstName", "lastName"));
+		User user = null;
+		user = DaoFacade.createOrUpdateUser(super.getParams(request, "id", "username", "password", "dni", "firstName", "lastName", "type"));
 		return new PreSerializedJson<User>(user, "id", "username", "dni", "firstName", "lastName");
 	}
 }

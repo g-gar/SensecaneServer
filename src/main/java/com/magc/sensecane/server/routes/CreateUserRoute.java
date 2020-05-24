@@ -17,11 +17,8 @@ public class CreateUserRoute extends AbstractPostRoute<User> {
 
 	@Override
 	public PreSerializedJson<User> serve(Request request, Response response) throws Exception {
-		return new PreSerializedJson<User>(
-			DaoFacade.createOrUpdateUser(
-				super.getParams(request, "username", "password", "dni", "firstName", "lastName", "type")
-			), 
-			"id", "username", "dni", "firstName", "lastName"
-		);
+		User user = null;
+		user = DaoFacade.createOrUpdateUser(super.getParams(request, "username", "password", "dni", "firstName", "lastName", "type"));
+		return new PreSerializedJson<User>(user, "id", "username", "dni", "firstName", "lastName");
 	}
 }
