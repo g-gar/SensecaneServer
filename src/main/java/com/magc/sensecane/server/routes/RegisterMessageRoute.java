@@ -19,11 +19,11 @@ public class RegisterMessageRoute extends AbstractPostRoute<MessageTable> {
 
 	@Override
 	public PreSerializedJson<MessageTable> serve(Request request, Response response) throws Exception {
-		Map<String, String> params = super.getParams(request, "user_from", "user_to", "message");
-		Integer from = Integer.valueOf(params.get("user_from"));
-		Integer to = Integer.valueOf(params.get("user_to"));
+		Map<String, String> params = super.getParams(request, "from", "to", "message");
+		Integer from = Integer.valueOf(params.get("from"));
+		Integer to = Integer.valueOf(params.get("to"));
 				
-		return new PreSerializedJson<MessageTable>(DaoFacade.registerMessage(from, to, params), "*");
+		return new PreSerializedJson<MessageTable>(DaoFacade.registerMessage(from, to, params), "id", "user_from", "user_to", "message", "timestamp");
 	}
 
 }
