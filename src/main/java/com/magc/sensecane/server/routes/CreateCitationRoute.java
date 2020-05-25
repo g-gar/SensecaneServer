@@ -4,12 +4,13 @@ import com.magc.sensecane.framework.container.Container;
 import com.magc.sensecane.framework.model.BaseEntity;
 import com.magc.sensecane.framework.model.json.PreSerializedJson;
 import com.magc.sensecane.framework.spark.AbstractPostRoute;
+import com.magc.sensecane.framework.spark.Authenticable;
 import com.magc.sensecane.server.model.database.CitationTable;
 
 import spark.Request;
 import spark.Response;
 
-public class CreateCitationRoute extends AbstractPostRoute<CitationTable> {
+public class CreateCitationRoute extends AbstractPostRoute<CitationTable> implements Authenticable {
 
 	public CreateCitationRoute(Container container) {
 		super(container);

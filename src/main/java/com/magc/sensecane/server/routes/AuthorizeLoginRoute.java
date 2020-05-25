@@ -34,8 +34,8 @@ public class AuthorizeLoginRoute extends AbstractPostRoute<Object> {
 					.map(e->DaoFacade.getUserInfo(e.getId()))
 					.filter(e -> e.getUsername().equals(username) && e.getPassword().equals(password))
 					.limit(1)
-					.map(ResponseModelFacade::createUser)
-					.map(e -> new PreSerializedJson<Object>(e, "id", "username", "dni", "firstName", "lastName", "type"))
+					.map(ResponseModelFacade::createUserWithToken)
+					.map(e -> new PreSerializedJson<Object>(e, "id", "username", "dni", "firstName", "lastName", "type", "token"))
 					.findFirst().orElse(null);
 		} catch (Exception e) {
 			e.printStackTrace();

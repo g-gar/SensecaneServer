@@ -5,13 +5,14 @@ import java.util.Map;
 import com.magc.sensecane.framework.container.Container;
 import com.magc.sensecane.framework.model.json.PreSerializedJson;
 import com.magc.sensecane.framework.spark.AbstractPostRoute;
+import com.magc.sensecane.framework.spark.Authenticable;
 import com.magc.sensecane.server.facade.DaoFacade;
 import com.magc.sensecane.server.model.database.PatientSensorTable;
 
 import spark.Request;
 import spark.Response;
 
-public class CreateSensorRoute extends AbstractPostRoute<PatientSensorTable> {
+public class CreateSensorRoute extends AbstractPostRoute<PatientSensorTable> implements Authenticable {
 
 	public CreateSensorRoute(Container container) {
 		super(container);

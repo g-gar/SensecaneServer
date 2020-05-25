@@ -3,6 +3,7 @@ package com.magc.sensecane.server.routes;
 import com.magc.sensecane.framework.container.Container;
 import com.magc.sensecane.framework.model.json.PreSerializedJson;
 import com.magc.sensecane.framework.spark.AbstractGetRoute;
+import com.magc.sensecane.framework.spark.Authenticable;
 import com.magc.sensecane.server.facade.DaoFacade;
 import com.magc.sensecane.server.model.database.CitationTable;
 import com.magc.sensecane.server.model.filter.CitationFilter;
@@ -10,7 +11,7 @@ import com.magc.sensecane.server.model.filter.CitationFilter;
 import spark.Request;
 import spark.Response;
 
-public class GetUserCitationRoute extends AbstractGetRoute<CitationTable> {
+public class GetUserCitationRoute extends AbstractGetRoute<CitationTable> implements Authenticable {
 
 	public GetUserCitationRoute(Container container) {
 		super(container);

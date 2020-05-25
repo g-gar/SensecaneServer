@@ -14,9 +14,10 @@ import com.magc.sensecane.framework.dao.DaoContainer;
 import com.magc.sensecane.framework.database.connection.pool.ConnectionPool;
 import com.magc.sensecane.framework.javafx.JavaFxApplication;
 import com.magc.sensecane.framework.model.BaseEntity;
+import com.magc.sensecane.framework.spark.AuthenticationService;
 import com.magc.sensecane.framework.spark.util.Filters;
-import com.magc.sensecane.framework.spark.util.Options;
 import com.magc.sensecane.framework.utils.LoadResource;
+import com.magc.sensecane.server.auth.TokenBearerAuthenticatorService;
 import com.magc.sensecane.server.configuration.ConfigurationJsonParser;
 import com.magc.sensecane.server.configuration.DBConfigurationJsonParser;
 import com.magc.sensecane.server.configuration.RestApiConfigurationJsonParser;
@@ -48,6 +49,7 @@ public class App extends JavaFxApplication implements SparkApplication {
 			LoadResource loadresource = new LoadResource();
 			app.register(loadresource);
 
+			app.register(AuthenticationService.class, new TokenBearerAuthenticatorService());
 			app.register(Service.class, Service.ignite());
 
 //			File file = loadresource.execute("json/sensecane.server.json");
@@ -73,17 +75,16 @@ public class App extends JavaFxApplication implements SparkApplication {
 
 //			app.get(Service.class).options("*", Options.enableCors);
 
-//			app.get(Service.class).before("*", Filters.addTrailingSlashes);
+			app.get(Service.class).before("*", Filters.addTrailingSlashes);
 //			app.get(Service.class).before("*", Filters.addCorsHeader);
 //			app.get(Service.class).before("*", Filters.postAcceptsJson);
 //			app.get(Service.class).options("*", Filters.handleLocaleChange);
-//			app.get(Service.class).after("*", Filters.addGzipHeader);
+			app.get(Service.class).after("*", Filters.addGzipHeader);
 //			app.get(Service.class).after("*", Filters.returnsJson);
-//			app.get(Service.class).after("*", Filters.setContentlength);
+			app.get(Service.class).after("*", Filters.setContentlength);
 
 			DaoContainer daocache = app.get(DaoContainer.class);
 			for (Class<? extends BaseEntity> table : daocache.getKeys()) {
-//				((CachedDao) daocache.get(table)).empty();
 				((CachedDao) daocache.get(table)).reloadCache();
 			}
 			

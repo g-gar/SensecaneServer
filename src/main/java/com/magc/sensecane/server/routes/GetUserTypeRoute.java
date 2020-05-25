@@ -3,13 +3,14 @@ package com.magc.sensecane.server.routes;
 import com.magc.sensecane.framework.container.Container;
 import com.magc.sensecane.framework.model.json.PreSerializedJson;
 import com.magc.sensecane.framework.spark.AbstractGetRoute;
+import com.magc.sensecane.framework.spark.Authenticable;
 import com.magc.sensecane.server.facade.dao.GetUserInfoUtil;
 import com.magc.sensecane.server.model.User;
 
 import spark.Request;
 import spark.Response;
 
-public class GetUserTypeRoute extends AbstractGetRoute<Object> {
+public class GetUserTypeRoute extends AbstractGetRoute<Object> implements Authenticable {
 
 	public GetUserTypeRoute(Container container) {
 		super(container);

@@ -6,13 +6,14 @@ import java.util.stream.Collectors;
 import com.magc.sensecane.framework.container.Container;
 import com.magc.sensecane.framework.model.json.PreSerializedJson;
 import com.magc.sensecane.framework.spark.AbstractGetRoute;
+import com.magc.sensecane.framework.spark.Authenticable;
 import com.magc.sensecane.server.facade.DaoFacade;
 import com.magc.sensecane.server.facade.ResponseModelFacade;
 
 import spark.Request;
 import spark.Response;
 
-public class GetRelatedUsersRoute extends AbstractGetRoute<Object> {
+public class GetRelatedUsersRoute extends AbstractGetRoute<Object> implements Authenticable {
 
 	public GetRelatedUsersRoute(Container container) {
 		super(container);

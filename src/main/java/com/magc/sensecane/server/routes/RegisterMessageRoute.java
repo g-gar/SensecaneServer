@@ -5,13 +5,14 @@ import java.util.Map;
 import com.magc.sensecane.framework.container.Container;
 import com.magc.sensecane.framework.model.json.PreSerializedJson;
 import com.magc.sensecane.framework.spark.AbstractPostRoute;
+import com.magc.sensecane.framework.spark.Authenticable;
 import com.magc.sensecane.server.facade.DaoFacade;
 import com.magc.sensecane.server.model.database.MessageTable;
 
 import spark.Request;
 import spark.Response;
 
-public class RegisterMessageRoute extends AbstractPostRoute<MessageTable> {
+public class RegisterMessageRoute extends AbstractPostRoute<MessageTable> implements Authenticable {
 
 	public RegisterMessageRoute(Container container) {
 		super(container);
