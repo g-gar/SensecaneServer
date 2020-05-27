@@ -26,7 +26,6 @@ public class ViewAllUsersRoute extends AbstractGetRoute<Object> implements Authe
 	public PreSerializedJson<Object> serve(Request request, Response response) throws Exception {
 		List<Object> users = DaoFacade.getAllUsers().stream()
 				.map(e->DaoFacade.getUserInfo(e.getId()))
-				.peek(System.out::println)
 				.map(ResponseModelFacade::createUser)
 				.collect(Collectors.toList());
 		

@@ -49,7 +49,6 @@ public class App extends JavaFxApplication implements SparkApplication {
 			LoadResource loadresource = new LoadResource();
 			app.register(loadresource);
 
-			app.register(AuthenticationService.class, new TokenBearerAuthenticatorService());
 			app.register(Service.class, Service.ignite());
 
 //			File file = loadresource.execute("json/sensecane.server.json");
@@ -82,6 +81,8 @@ public class App extends JavaFxApplication implements SparkApplication {
 			app.get(Service.class).after("*", Filters.addGzipHeader);
 //			app.get(Service.class).after("*", Filters.returnsJson);
 			app.get(Service.class).after("*", Filters.setContentlength);
+			
+			app.register(AuthenticationService.class, new TokenBearerAuthenticatorService());
 
 			DaoContainer daocache = app.get(DaoContainer.class);
 			for (Class<? extends BaseEntity> table : daocache.getKeys()) {
