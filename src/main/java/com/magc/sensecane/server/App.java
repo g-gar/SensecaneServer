@@ -78,9 +78,9 @@ public class App extends JavaFxApplication implements SparkApplication {
 //			app.get(Service.class).before("*", Filters.addCorsHeader);
 //			app.get(Service.class).before("*", Filters.postAcceptsJson);
 //			app.get(Service.class).options("*", Filters.handleLocaleChange);
-			app.get(Service.class).after("*", Filters.addGzipHeader);
+//			app.get(Service.class).after("*", Filters.addGzipHeader);
 //			app.get(Service.class).after("*", Filters.returnsJson);
-			app.get(Service.class).after("*", Filters.setContentlength);
+//			app.get(Service.class).after("*", Filters.setContentlength);
 			
 			app.register(AuthenticationService.class, new TokenBearerAuthenticatorService());
 
