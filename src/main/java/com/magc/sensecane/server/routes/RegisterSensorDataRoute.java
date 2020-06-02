@@ -36,7 +36,7 @@ public class RegisterSensorDataRoute extends AbstractPostRoute<SensorDataTable> 
 		Integer userId = Integer.valueOf(params.get("user_id"));
 		Integer sensorId = Integer.valueOf(params.get("sensor_id"));
 
-		return new PreSerializedJson<SensorDataTable>(DaoFacade.registerSensorData(userId, sensorId, params), "id", "sensor", "timestamp", "value");
+		return new PreSerializedJson<SensorDataTable>(DaoFacade.registerSensorData(userId, sensorId, params), "*");
 	}
 
 }
