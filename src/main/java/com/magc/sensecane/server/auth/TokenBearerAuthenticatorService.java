@@ -31,7 +31,7 @@ public class TokenBearerAuthenticatorService implements AuthenticationService {
 		Iterator<UserTable> it = users.iterator();
 		while (it.hasNext() && user == null) {
 			temp = DaoFacade.getUserInfo(it.next().getId());
-			if (temp.getToken().equals(token)) {
+			if (temp != null && temp.getToken().equals(token)) {
 				user = temp;
 			}
 		}
